@@ -255,3 +255,8 @@ Block 3 next: AI repo map (read-only). You open each listed file.
 
 - Run 41193788246: report summary alpine + node-pkg all 0, step still exit 1. Trivy 0.69 table lists every clean package as a target; `--exit-code 1` fails anyway. Scan now writes JSON with exit 0; a Python step fails only on HIGH/CRITICAL in that file.
 - Verify: push and watch build-and-scan. `pnpm audit --audit-level=high` is 0 HIGH on both services (14/5 remaining low+moderate). Rollback: restore table + `exit-code: '1'` in ci.yml.
+
+### CI Trivy HIGH on pnpm in the runtime image
+
+- Run 41194844541: JSON gate listed HIGH/CRITICAL on `pnpm` 10.19.0, `tar` 7.5.1, `sigstore` 3.1.0. Those are from `corepack prepare pnpm@10.19.0` in the prod stage, not app deps. Prod now copies pruned `node_modules` + `dist` and drops npm/corepack.
+- Verify: local `docker build` then Trivy HIGH/CRITICAL empty; push and watch build-and-scan. Rollback: restore the old Dockerfiles that ran pnpm install in prod.
