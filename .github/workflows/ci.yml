@@ -101,8 +101,10 @@ jobs:
           format: table
           exit-code: '1'
           ignore-unfixed: true
+          scanners: vuln
           vuln-type: os,library
           severity: HIGH,CRITICAL
+          hide-progress: true
           trivyignores: .trivyignore
       - name: Login GHCR
         if: github.ref_type == 'tag'

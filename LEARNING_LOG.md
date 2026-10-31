@@ -245,3 +245,8 @@ Block 3 next: AI repo map (read-only). You open each listed file.
 
 - Root `README.md`: what it is, diagram, how I ran it, what works, what is stubbed. Same voice as `docs/design-note.md`. No marketing.
 - Verify: open README as if you were Adebola. Do not commit the Identiko JD PDF. Rollback: delete `README.md`.
+
+### CI Trivy red
+
+- Build-and-scan failed: Trivy HIGH on `multer` / `js-yaml` (fix available) and secret scanner. Overrides in both package.json; `apk upgrade` in prod images; CI `scanners: vuln`.
+- Verify: push and watch Actions build-and-scan. Rollback: revert overrides, Dockerfiles, ci.yml scanners.

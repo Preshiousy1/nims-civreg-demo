@@ -14,6 +14,7 @@ RUN pnpm build
 FROM node:22-alpine AS prod
 WORKDIR /app
 ENV NODE_ENV=production
+RUN apk upgrade --no-cache
 RUN corepack enable && corepack prepare pnpm@10.19.0 --activate
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile --prod

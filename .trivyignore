@@ -1,2 +1,3 @@
 # Trivy ignore list. Add a CVE id only with a one-line reason.
 # CI fails on HIGH and CRITICAL. Unfixed OS CVEs are ignored via ignore-unfixed.
+# Secret scanning is off in CI (scanners: vuln). Demo JWT strings are not production secrets.
