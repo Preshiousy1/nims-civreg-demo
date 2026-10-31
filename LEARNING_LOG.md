@@ -250,3 +250,8 @@ Block 3 next: AI repo map (read-only). You open each listed file.
 
 - Build-and-scan failed: Trivy HIGH on `multer` / `js-yaml` (fix available) and secret scanner. Overrides in both package.json; `apk upgrade` in prod images; CI `scanners: vuln`.
 - Verify: push and watch Actions build-and-scan. Rollback: revert overrides, Dockerfiles, ci.yml scanners.
+
+### CI Trivy still red with 0 CVEs
+
+- Run 41193788246: report summary alpine + node-pkg all 0, step still exit 1. Trivy 0.69 table lists every clean package as a target; `--exit-code 1` fails anyway. Scan now writes JSON with exit 0; a Python step fails only on HIGH/CRITICAL in that file.
+- Verify: push and watch build-and-scan. `pnpm audit --audit-level=high` is 0 HIGH on both services (14/5 remaining low+moderate). Rollback: restore table + `exit-code: '1'` in ci.yml.
