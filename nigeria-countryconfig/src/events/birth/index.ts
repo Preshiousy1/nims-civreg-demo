@@ -36,6 +36,7 @@ import {
   Event,
   BIRTH_LATE_REGISTRATION_TARGET_DAYS
 } from '@countryconfig/events/utils'
+import { NimsRole } from '@countryconfig/data-seeding/roles/roles'
 
 export const birthEvent = defineConfig({
   id: Event.Birth,
@@ -53,7 +54,7 @@ export const birthEvent = defineConfig({
     id: 'event.birth.title'
   },
   fallbackTitle: {
-    id: 'event.tennis-club-membership.fallbackTitle',
+    id: 'event.birth.fallbackTitle',
     defaultMessage: 'No name provided',
     description:
       'This is a fallback title if actual title resolves to empty string'
@@ -307,9 +308,9 @@ export const birthEvent = defineConfig({
           id: 'validated',
           operation: 'add',
           conditional: or(
-            user.hasRole('REGISTRATION_AGENT'),
-            user.hasRole('LOCAL_REGISTRAR'),
-            user.hasRole('EMBASSY_OFFICIAL')
+            user.hasRole(NimsRole.RegistrationAgent),
+            user.hasRole(NimsRole.Registrar),
+            user.hasRole(NimsRole.Checker)
           )
         }
       ],

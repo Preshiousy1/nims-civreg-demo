@@ -15,7 +15,7 @@ import { env } from './environment'
 export default defineLoginConfig({
   // Country code in uppercase ALPHA-3 format
   COUNTRY: env.COUNTRY_CODE,
-  LANGUAGES: ['en', 'fr'],
+  LANGUAGES: ['en', 'fr', 'pcm'],
   LOGIN_BACKGROUND: { backgroundColor: '36304E' },
   USER_NOTIFICATION_DELIVERY_METHOD:
     applicationConfig.USER_NOTIFICATION_DELIVERY_METHOD,

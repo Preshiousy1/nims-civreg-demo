@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "civreg-bridge.fullname" . }}
+  labels:
+    {{- include "civreg-bridge.labels" . | nindent 4 }}
+data:
+  PORT: {{ .Values.config.port | quote }}
+  RUN_MIGRATIONS: {{ .Values.config.runMigrations | quote }}
+  STUB_IDENTITY_URL: {{ .Values.config.stubIdentityUrl | quote }}
+  STUB_RETRY_ATTEMPTS: {{ .Values.config.stubRetryAttempts | quote }}
+  STUB_RETRY_DELAY_MS: {{ .Values.config.stubRetryDelayMs | quote }}
+  OPENCRVS_TOKEN_URL: {{ .Values.config.openCrvsTokenUrl | quote }}
+  OPENCRVS_EVENTS_URL: {{ .Values.config.openCrvsEventsUrl | quote }}
+  KAFKA_BROKERS: {{ .Values.config.kafkaBrokers | quote }}

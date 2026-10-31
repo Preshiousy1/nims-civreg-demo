@@ -1,65 +1,775 @@
-admin3Name_en,admin3Name_alias,admin3Pcode,admin2Name_en,admin2Name_alias,admin2Pcode,admin1Name_en,admin1Name_alias,admin1Pcode,admin0Name_en,admin0Name_alias,admin0Pcode
-Klow,Klow,IkYcYBUcyY2,Ibombo,Ibombo,RNblUNSnSpQ,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Mbondo,Mbondo,Qhvv5hvo3mY,Ibombo,Ibombo,RNblUNSnSpQ,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Ndara,Ndara,crXh068O9TR,Ibombo,Ibombo,RNblUNSnSpQ,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Olani,Olani,r00It8Tvvp7,Ibombo,Ibombo,RNblUNSnSpQ,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Pemba,Pemba,ZnUWsbONIaH,Ibombo,Ibombo,RNblUNSnSpQ,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Quanza,Quanza,fDZycvQTa7l,Ibombo,Ibombo,RNblUNSnSpQ,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Rivka,Rivka,KqswxCGTELa,Ibombo,Ibombo,RNblUNSnSpQ,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Mbula,Mbula,osEbKjRc9Kg,Isamba,Isamba,Qxj1vERd9JJ,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Ndoki,Ndoki,aq4daBUAGr3,Isamba,Isamba,Qxj1vERd9JJ,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Tsanga,Tsanga,cqis6Y8trbJ,Isamba,Isamba,Qxj1vERd9JJ,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Waziri,Waziri,LMijHPyyx6d,Isamba,Isamba,Qxj1vERd9JJ,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Zimbi,Zimbi,pcQYbPuKGZ7,Isamba,Isamba,Qxj1vERd9JJ,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Felani,Felani,gSqpoCGdMXp,Itambo,Itambo,SXsrYaPI77h,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Goroma,Goroma,KvAAIaNqVrp,Itambo,Itambo,SXsrYaPI77h,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Halifu,Halifu,qe4UnEVt1hv,Itambo,Itambo,SXsrYaPI77h,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Jabari,Jabari,yHH9Nz4rLOt,Itambo,Itambo,SXsrYaPI77h,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Kifani,Kifani,eSWmXIGeu1I,Itambo,Itambo,SXsrYaPI77h,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Lumela,Lumela,bh0b3aI1uP3,Itambo,Itambo,SXsrYaPI77h,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Makulu,Makulu,NIZoUkU1lEn,Ezhi,Ezhi,yIg1VrjnkAy,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Nyala,Nyala,ZapDslZdS9c,Ezhi,Ezhi,yIg1VrjnkAy,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Obiwa,Obiwa,InxW9uC8m4a,Ezhi,Ezhi,yIg1VrjnkAy,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Pendwa,Pendwa,t7uA69o3vox,Ezhi,Ezhi,yIg1VrjnkAy,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Quilani,Quilani,ilYURbLy4bA,Ezhi,Ezhi,yIg1VrjnkAy,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Ruwanda,Ruwanda,elnZroVIXK9,Ezhi,Ezhi,yIg1VrjnkAy,Central,Central,WoNZq5uKPT0,Farajaland,Farajaland,FAR
-Sabuni,Sabuni,9qWCA79ISjs,Ilanga,Ilanga,g9bEobgzisg,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Tembo,Tembo,lKPoh3pKMzK,Ilanga,Ilanga,g9bEobgzisg,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Ubongo,Ubongo,C99enq522wj,Ilanga,Ilanga,g9bEobgzisg,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Vumilia,Vumilia,hgIqLSmNqE4,Ilanga,Ilanga,g9bEobgzisg,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Watu,Watu,ae24HZKjht3,Ilanga,Ilanga,g9bEobgzisg,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Xhosa,Xhosa,518Y2bTu5X1,Irundu,Irundu,z9zl7RuwERC,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Yazidi,Yazidi,oblu17rNy8H,Irundu,Irundu,z9zl7RuwERC,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Zalika,Zalika,FxJpRa5HSUP,Irundu,Irundu,z9zl7RuwERC,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Amani,Amani,shA6P3MsHar,Irundu,Irundu,z9zl7RuwERC,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Bakari,Bakari,FNuYUPnmbpD,Irundu,Irundu,z9zl7RuwERC,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Chuma,Chuma,VgAk7Gdp0CX,Zobwe,Zobwe,P9K63LSFZH3,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Dalila,Dalila,qtHioRRdzHz,Zobwe,Zobwe,P9K63LSFZH3,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Elimu,Elimu,07zUHLnnBbu,Zobwe,Zobwe,P9K63LSFZH3,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Fahari,Fahari,iCdxnuVxUZp,Zobwe,Zobwe,P9K63LSFZH3,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Gani,Gani,bjhPInRVkLU,Zobwe,Zobwe,P9K63LSFZH3,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Hakuna,Hakuna,QMgV0Lh8WvA,Zobwe,Zobwe,P9K63LSFZH3,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Imani,Imani,T7qYHDBTq0Z,Afue,Afue,f2pCLxb0lnX,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Jamii,Jamii,OEXfnQsKDGA,Afue,Afue,f2pCLxb0lnX,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Kazi,Kazi,nES8Grgmola,Afue,Afue,f2pCLxb0lnX,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Lakini,Lakini,Bld6DYyeNdj,Afue,Afue,f2pCLxb0lnX,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Moja,Moja,19sMLT6mnOj,Afue,Afue,f2pCLxb0lnX,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Nia,Nia,5WMO5AHO4Ze,Afue,Afue,f2pCLxb0lnX,Sulaka,Sulaka,EdAHjSJkuLb,Farajaland,Farajaland,FAR
-Kitu,Kitu,efICdt4slOT,Ama,Ama,MaDrivTETpr,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Laini,Laini,mmW3Dc2mvtJ,Ama,Ama,MaDrivTETpr,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Maji,Maji,VGYeAy4l3Gg,Ama,Ama,MaDrivTETpr,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Nguvu,Nguvu,susd8QUOSd4,Ama,Ama,MaDrivTETpr,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Oro,Oro,E9wNkTotFZk,Nsali,Nsali,S1rKGyWYnsi,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Pesa,Pesa,ZgyUA00EGca,Nsali,Nsali,S1rKGyWYnsi,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Queli,Queli,UQl7Vl1YzoP,Nsali,Nsali,S1rKGyWYnsi,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Rangi,Rangi,I8eZdkXLMeO,Nsali,Nsali,S1rKGyWYnsi,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Sina,Sina,B5nvalfKOXi,Nsali,Nsali,S1rKGyWYnsi,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Tano,Tano,X1gv3NId9V7,Soka,Soka,XRlphADibcf,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Ufiki,Ufiki,SCqQwF26GU6,Soka,Soka,XRlphADibcf,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Vuli,Vuli,JRfmgliFAeF,Soka,Soka,XRlphADibcf,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Wapi,Wapi,VQ9OAw2ORsi,Soka,Soka,XRlphADibcf,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
-Oya,Oya,p3MinOBkT3e,-,-,OyaDistr1ct,Pualula,Pualula,o44wEmWlYr8,Farajaland,Farajaland,FAR
-Pamoja,Pamoja,snK3vUpxhW3,-,-,PmjDistr2ct,Pualula,Pualula,o44wEmWlYr8,Farajaland,Farajaland,FAR
-Quisha,Quisha,BseVCOHTNi6,-,-,QshDistr3ct,Pualula,Pualula,o44wEmWlYr8,Farajaland,Farajaland,FAR
-Raha,Raha,XKQ6R4bAjTG,-,-,RahDistr4ct,Pualula,Pualula,o44wEmWlYr8,Farajaland,Farajaland,FAR
--,-,R22tRIhdm5Y,Chibiya,Chibiya,RKQ6R4bAjTg,Chuminga,Chuminga,jJflULHjjIk,Farajaland,Farajaland,FAR
+admin2Name_en,admin2Name_alias,admin2Pcode,admin1Name_en,admin1Name_alias,admin1Pcode,admin0Name_en,admin0Name_alias,admin0Pcode
+Aba North,Aba North,1001,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Aba South,Aba South,1002,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Arochukwu,Arochukwu,1003,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Bende,Bende,1004,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Ikwuano,Ikwuano,1005,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Isiala-Ngwa North,Isiala-Ngwa North,1006,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Isiala-Ngwa South,Isiala-Ngwa South,1007,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Isuikwuato,Isuikwuato,1008,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Obi Nwga,Obi Nwga,1009,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Ohafia,Ohafia,1010,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Osisioma Ngwa,Osisioma Ngwa,1011,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Ugwunagbo,Ugwunagbo,1012,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Ukwa East,Ukwa East,1013,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Ukwa West,Ukwa West,1014,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Umu-Nneochi,Umu-Nneochi,1015,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Umuahia North,Umuahia North,1016,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Umuahia South,Umuahia South,1017,Abia,Abia,AB,Nigeria,Nigeria,NGA
+Demsa,Demsa,2001,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Fufore,Fufore,2002,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Ganye,Ganye,2003,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Girei,Girei,2004,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Gombi,Gombi,2005,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Guyuk,Guyuk,2006,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Hong,Hong,2007,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Jada,Jada,2008,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Lamurde,Lamurde,2009,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Madagali,Madagali,2010,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Maiha,Maiha,2011,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Mayo-Belwa,Mayo-Belwa,2012,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Michika,Michika,2013,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Mubi North,Mubi North,2014,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Mubi South,Mubi South,2015,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Numan,Numan,2016,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Shelleng,Shelleng,2017,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Song,Song,2018,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Toungo,Toungo,2019,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Yola North,Yola North,2020,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Yola South,Yola South,2021,Adamawa,Adamawa,AD,Nigeria,Nigeria,NGA
+Abak,Abak,3001,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Eastern Obolo,Eastern Obolo,3002,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Eket,Eket,3003,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Esit Eket,Esit Eket,3004,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Essien Udim,Essien Udim,3005,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Etim Ekpo,Etim Ekpo,3006,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Etinan,Etinan,3007,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Ibeno,Ibeno,3008,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Ibesikpo Asutan,Ibesikpo Asutan,3009,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Ibiono Ibom,Ibiono Ibom,3010,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Ika,Ika,3011,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Ikono,Ikono,3012,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Ikot Abasi,Ikot Abasi,3013,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Ikot Ekpene,Ikot Ekpene,3014,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Ini,Ini,3015,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Itu,Itu,3016,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Mbo,Mbo,3017,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Mkpat Enin,Mkpat Enin,3018,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Nsit Atai,Nsit Atai,3019,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Nsit Ibom,Nsit Ibom,3020,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Nsit Ubium,Nsit Ubium,3021,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Obot Akara,Obot Akara,3022,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Okobo,Okobo,3023,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Onna,Onna,3024,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Oron,Oron,3025,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Oruk Anam,Oruk Anam,3026,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Udung Uko,Udung Uko,3027,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Ukanafun,Ukanafun,3028,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Uruan,Uruan,3029,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Urue Offong/Oruko,Urue Offong/Oruko,3030,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Uyo,Uyo,3031,Akwa Ibom,Akwa Ibom,AK,Nigeria,Nigeria,NGA
+Aguata,Aguata,4001,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Anambra East,Anambra East,4002,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Anambra West,Anambra West,4003,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Anaocha,Anaocha,4004,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Awka North,Awka North,4005,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Awka South,Awka South,4006,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Ayamelum,Ayamelum,4007,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Dunukofia,Dunukofia,4008,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Ekwusigo,Ekwusigo,4009,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Idemili North,Idemili North,4010,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Idemili South,Idemili South,4011,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Ihiala,Ihiala,4012,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Njikoka,Njikoka,4013,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Nnewi North,Nnewi North,4014,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Nnewi South,Nnewi South,4015,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Ogbaru,Ogbaru,4016,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Onitsha North,Onitsha North,4017,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Onitsha South,Onitsha South,4018,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Orumba North,Orumba North,4019,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Orumba South,Orumba South,4020,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Oyi,Oyi,4021,Anambra,Anambra,AN,Nigeria,Nigeria,NGA
+Alkaleri,Alkaleri,5001,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Bauchi,Bauchi,5002,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Bogoro,Bogoro,5003,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Dambam,Dambam,5004,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Darazo,Darazo,5005,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Dass,Dass,5006,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Gamawa,Gamawa,5007,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Ganjuwa,Ganjuwa,5008,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Giade,Giade,5009,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Itas/Gadau,Itas/Gadau,5010,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Jama'Are,Jama'Are,5011,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Katagum,Katagum,5012,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Kirfi,Kirfi,5013,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Misau,Misau,5014,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Ningi,Ningi,5015,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Shira,Shira,5016,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Tafawa-Balewa,Tafawa-Balewa,5017,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Toro,Toro,5018,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Warji,Warji,5019,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Zaki,Zaki,5020,Bauchi,Bauchi,BA,Nigeria,Nigeria,NGA
+Brass,Brass,6001,Bayelsa,Bayelsa,BY,Nigeria,Nigeria,NGA
+Ekeremor,Ekeremor,6002,Bayelsa,Bayelsa,BY,Nigeria,Nigeria,NGA
+Kolokuma/Opokuma,Kolokuma/Opokuma,6003,Bayelsa,Bayelsa,BY,Nigeria,Nigeria,NGA
+Nembe,Nembe,6004,Bayelsa,Bayelsa,BY,Nigeria,Nigeria,NGA
+Ogbia,Ogbia,6005,Bayelsa,Bayelsa,BY,Nigeria,Nigeria,NGA
+Sagbama,Sagbama,6006,Bayelsa,Bayelsa,BY,Nigeria,Nigeria,NGA
+Southern Ijaw,Southern Ijaw,6007,Bayelsa,Bayelsa,BY,Nigeria,Nigeria,NGA
+Yenegoa,Yenegoa,6008,Bayelsa,Bayelsa,BY,Nigeria,Nigeria,NGA
+Ado,Ado,7001,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Agatu,Agatu,7002,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Apa,Apa,7003,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Buruku,Buruku,7004,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Gboko,Gboko,7005,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Guma,Guma,7006,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Gwer East,Gwer East,7007,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Gwer West,Gwer West,7008,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Katsina-Ala,Katsina-Ala,7009,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Konshisha,Konshisha,7010,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Kwande,Kwande,7011,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Logo,Logo,7012,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Makurdi,Makurdi,7013,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Obi,Obi,7014,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Ogbadibo,Ogbadibo,7015,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Ohimini,Ohimini,7016,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Oju,Oju,7017,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Okpokwu,Okpokwu,7018,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Oturkpo,Oturkpo,7019,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Tarka,Tarka,7020,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Ukum,Ukum,7021,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Ushongo,Ushongo,7022,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Vandeikya,Vandeikya,7023,Benue,Benue,BE,Nigeria,Nigeria,NGA
+Abadam,Abadam,101,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Askira Uba,Askira Uba,102,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Bama,Bama,103,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Bayo,Bayo,104,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Biu,Biu,105,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Chibok,Chibok,106,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Damboa,Damboa,107,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Dikwa,Dikwa,108,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Gubio,Gubio,109,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Guzamala,Guzamala,110,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Gwoza,Gwoza,111,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Hawul,Hawul,112,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Jere,Jere,113,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Kaga,Kaga,114,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Kala Balge,Kala Balge,115,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Konduga,Konduga,116,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Kukawa,Kukawa,117,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Kwaya Kusar,Kwaya Kusar,118,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Mafa,Mafa,119,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Magumeri,Magumeri,120,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Maiduguri,Maiduguri,124,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Marte,Marte,121,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Mobbar,Mobbar,122,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Monguno,Monguno,123,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Ngala,Ngala,125,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Nganzai,Nganzai,126,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Shani,Shani,127,Borno,Borno,BR,Nigeria,Nigeria,NGA
+Abi,Abi,9001,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Akamkpa,Akamkpa,9002,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Akpabuyo,Akpabuyo,9003,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Bakassi,Bakassi,9004,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Bekwarra,Bekwarra,9005,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Biase,Biase,9006,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Boki,Boki,9007,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Calabar Municipal,Calabar Municipal,9008,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Calabar South,Calabar South,9009,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Etung,Etung,9010,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Ikom,Ikom,9011,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Obanliku,Obanliku,9012,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Obubra,Obubra,9013,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Obudu,Obudu,9014,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Odukpani,Odukpani,9015,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Ogoja,Ogoja,9016,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Yakurr,Yakurr,9017,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Yala,Yala,9018,Cross River,Cross River,CR,Nigeria,Nigeria,NGA
+Aniocha North,Aniocha North,10001,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Aniocha South,Aniocha South,10002,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Bomadi,Bomadi,10003,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Burutu,Burutu,10004,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Ethiope East,Ethiope East,10005,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Ethiope West,Ethiope West,10006,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Ika North East,Ika North East,10007,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Ika South,Ika South,10008,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Isoko North,Isoko North,10009,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Isoko South,Isoko South,10010,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Ndokwa East,Ndokwa East,10011,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Ndokwa West,Ndokwa West,10012,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Okpe,Okpe,10013,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Oshimili North,Oshimili North,10014,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Oshimili South,Oshimili South,10015,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Patani,Patani,10016,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Sapele,Sapele,10017,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Udu,Udu,10018,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Ughelli North,Ughelli North,10019,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Ughelli South,Ughelli South,10020,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Ukwuani,Ukwuani,10021,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Uvwie,Uvwie,10022,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Warri North,Warri North,10023,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Warri South,Warri South,10024,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Warri South-West,Warri South-West,10025,Delta,Delta,DE,Nigeria,Nigeria,NGA
+Abakaliki,Abakaliki,11001,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Afikpo North,Afikpo North,11002,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Afikpo South,Afikpo South,11003,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Ebonyi,Ebonyi,11004,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Ezza North,Ezza North,11005,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Ezza South,Ezza South,11006,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Ikwo,Ikwo,11007,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Ishielu,Ishielu,11008,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Ivo,Ivo,11009,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Izzi,Izzi,11010,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Ohaozara,Ohaozara,11011,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Ohaukwu,Ohaukwu,11012,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Onicha,Onicha,11013,Ebonyi,Ebonyi,EB,Nigeria,Nigeria,NGA
+Akoko-Edo,Akoko-Edo,12001,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Egor,Egor,12002,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Esan Central,Esan Central,12004,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Esan North-East,Esan North-East,12003,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Esan South-East,Esan South-East,12005,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Esan West,Esan West,12006,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Etsako Central,Etsako Central,12007,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Etsako East,Etsako East,12008,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Etsako West,Etsako West,12009,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Iguegben,Iguegben,12010,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Ikpoba-Okha,Ikpoba-Okha,12011,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Oredo,Oredo,12012,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Orhionmwon,Orhionmwon,12013,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Ovia North-East,Ovia North-East,12014,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Ovia South-West,Ovia South-West,12015,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Owan East,Owan East,12016,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Owan West,Owan West,12017,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Uhunmwonde,Uhunmwonde,12018,Edo,Edo,ED,Nigeria,Nigeria,NGA
+Ado-Ekiti,Ado-Ekiti,13001,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Efon,Efon,13002,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Ekiti East,Ekiti East,13003,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Ekiti South-West,Ekiti South-West,13004,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Ekiti West,Ekiti West,13005,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Emure,Emure,13006,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Gbonyin,Gbonyin,13007,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Ido-Osi,Ido-Osi,13008,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Ijero,Ijero,13009,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Ikere,Ikere,13010,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Ikole,Ikole,13011,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Ilejemeje,Ilejemeje,13012,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Irepodun/Ifelodun,Irepodun/Ifelodun,13013,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Ise/Orun,Ise/Orun,13014,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Moba,Moba,13015,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Oye,Oye,13016,Ekiti,Ekiti,EK,Nigeria,Nigeria,NGA
+Aninri,Aninri,14001,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Awgu,Awgu,14002,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Enugu East,Enugu East,14003,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Enugu North,Enugu North,14004,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Enugu South,Enugu South,14005,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Ezeagu,Ezeagu,14006,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Igbo-Etiti,Igbo-Etiti,14007,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Igbo-Eze North,Igbo-Eze North,14008,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Igbo-Eze-South,Igbo-Eze-South,14009,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Isi-Uzo,Isi-Uzo,14010,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Nkanu East,Nkanu East,14011,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Nkanu West,Nkanu West,14012,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Nsukka,Nsukka,14013,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Oji-River,Oji-River,14014,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Udenu,Udenu,14015,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Udi,Udi,14016,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Uzo-Uwani,Uzo-Uwani,14017,Enugu,Enugu,EN,Nigeria,Nigeria,NGA
+Abaji,Abaji,15001,Fct,Fct,FC,Nigeria,Nigeria,NGA
+Bwari,Bwari,15002,Fct,Fct,FC,Nigeria,Nigeria,NGA
+Gwagwalada,Gwagwalada,15003,Fct,Fct,FC,Nigeria,Nigeria,NGA
+Kuje,Kuje,15004,Fct,Fct,FC,Nigeria,Nigeria,NGA
+Kwali,Kwali,15005,Fct,Fct,FC,Nigeria,Nigeria,NGA
+Municipal Area Council,Municipal Area Council,15006,Fct,Fct,FC,Nigeria,Nigeria,NGA
+Akko,Akko,16001,Gombe,Gombe,GO,Nigeria,Nigeria,NGA
+Balanga,Balanga,16002,Gombe,Gombe,GO,Nigeria,Nigeria,NGA
+Billiri,Billiri,16003,Gombe,Gombe,GO,Nigeria,Nigeria,NGA
+Dukku,Dukku,16004,Gombe,Gombe,GO,Nigeria,Nigeria,NGA
+Funakaye,Funakaye,16005,Gombe,Gombe,GO,Nigeria,Nigeria,NGA
+Gombe,Gombe,16006,Gombe,Gombe,GO,Nigeria,Nigeria,NGA
+Kaltungo,Kaltungo,16007,Gombe,Gombe,GO,Nigeria,Nigeria,NGA
+Kwami,Kwami,16008,Gombe,Gombe,GO,Nigeria,Nigeria,NGA
+Nafada,Nafada,16009,Gombe,Gombe,GO,Nigeria,Nigeria,NGA
+Shomgom,Shomgom,16010,Gombe,Gombe,GO,Nigeria,Nigeria,NGA
+Yamaltu/Deba,Yamaltu/Deba,16011,Gombe,Gombe,GO,Nigeria,Nigeria,NGA
+Aboh-Mbaise,Aboh-Mbaise,17001,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Ahiazu-Mbaise,Ahiazu-Mbaise,17002,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Ehime-Mbano,Ehime-Mbano,17003,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Ezinihitte,Ezinihitte,17004,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Ideato North,Ideato North,17005,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Ideato South,Ideato South,17006,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Ihitte/Uboma,Ihitte/Uboma,17007,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Ikeduru,Ikeduru,17008,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Isiala Mbano,Isiala Mbano,17009,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Isu,Isu,17010,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Mbatoli,Mbatoli,17011,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Ngor-Okpala,Ngor-Okpala,17012,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Njaba,Njaba,17013,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Nkwerre,Nkwerre,17014,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Nwangele,Nwangele,17015,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Obowo,Obowo,17016,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Oguta,Oguta,17017,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Ohaji/Egbema,Ohaji/Egbema,17018,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Okigwe,Okigwe,17019,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Onuimo,Onuimo,17027,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Orlu,Orlu,17020,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Orsu,Orsu,17021,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Oru East,Oru East,17022,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Oru West,Oru West,17023,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Owerri Municipal,Owerri Municipal,17024,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Owerri North,Owerri North,17025,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Owerri West,Owerri West,17026,Imo,Imo,IM,Nigeria,Nigeria,NGA
+Auyo,Auyo,18013,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Babura,Babura,18004,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Biriniwa,Biriniwa,18021,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Birnin Kudu,Birnin Kudu,18022,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Buji,Buji,18018,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Dutse,Dutse,18012,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Gagarawa,Gagarawa,18016,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Garki,Garki,18024,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Gumel,Gumel,18006,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Guri,Guri,18005,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Gwaram,Gwaram,18008,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Gwiwa,Gwiwa,18009,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Hadejia,Hadejia,18011,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Jahun,Jahun,18026,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Kafin Hausa,Kafin Hausa,18027,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Kaugama,Kaugama,18001,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Kazaure,Kazaure,18010,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Kiri Kasama,Kiri Kasama,18007,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Kiyawa,Kiyawa,18025,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Maigatari,Maigatari,18023,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Malam Madori,Malam Madori,18017,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Miga,Miga,18014,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Ringim,Ringim,18020,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Roni,Roni,18015,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Sule Tankarkar,Sule Tankarkar,18030,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Taura,Taura,18002,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Yankwashi,Yankwashi,18019,Jigawa,Jigawa,JI,Nigeria,Nigeria,NGA
+Birnin Gwari,Birnin Gwari,19001,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Chikun,Chikun,19002,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Giwa,Giwa,19003,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Igabi,Igabi,19004,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Ikara,Ikara,19005,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Jaba,Jaba,19006,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Jema'A,Jema'A,19007,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Kachia,Kachia,19008,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Kaduna North,Kaduna North,19009,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Kaduna South,Kaduna South,19010,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Kagarko,Kagarko,19011,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Kajuru,Kajuru,19012,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Kaura,Kaura,19013,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Kauru,Kauru,19014,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Kubau,Kubau,19015,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Kudan,Kudan,19016,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Lere,Lere,19017,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Makarfi,Makarfi,19018,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Sabon Gari,Sabon Gari,19019,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Sanga,Sanga,19020,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Soba,Soba,19021,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Zangon Kataf,Zangon Kataf,19022,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Zaria,Zaria,19023,Kaduna,Kaduna,KD,Nigeria,Nigeria,NGA
+Ajingi,Ajingi,20004,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Albasu,Albasu,20009,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Bagwai,Bagwai,20038,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Bebeji,Bebeji,20025,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Bichi,Bichi,20031,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Bunkure,Bunkure,20028,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Dala,Dala,20024,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Dambatta,Dambatta,20023,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Dawakin Kudu,Dawakin Kudu,20022,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Dawakin Tofa,Dawakin Tofa,20021,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Doguwa,Doguwa,20020,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Fagge,Fagge,20030,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Gabasawa,Gabasawa,20016,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Garko,Garko,20006,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Garun Malam,Garun Malam,20003,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Gaya,Gaya,20007,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Gezawa,Gezawa,20010,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Gwale,Gwale,20012,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Gwarzo,Gwarzo,20017,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Kabo,Kabo,20026,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Kano Municipal,Kano Municipal,20043,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Karaye,Karaye,20041,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Kibiya,Kibiya,20033,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Kiru,Kiru,20034,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Kumbotso,Kumbotso,20044,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Kunchi,Kunchi,20042,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Kura,Kura,20035,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Madobi,Madobi,20036,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Makoda,Makoda,20039,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Minjibir,Minjibir,20040,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Nassarawa,Nassarawa,20037,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Rano,Rano,20014,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Rimin Gado,Rimin Gado,20005,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Rogo,Rogo,20032,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Shanono,Shanono,20013,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Sumaila,Sumaila,20011,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Takai,Takai,20002,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Tarauni,Tarauni,20001,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Tofa,Tofa,20015,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Tsanyawa,Tsanyawa,20008,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Tudun Wada,Tudun Wada,20029,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Ungogo,Ungogo,20018,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Warawa,Warawa,20019,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Wudil,Wudil,20027,Kano,Kano,KN,Nigeria,Nigeria,NGA
+Bakori,Bakori,401,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Batagarawa,Batagarawa,402,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Batsari,Batsari,403,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Baure,Baure,404,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Bindawa,Bindawa,405,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Charanchi,Charanchi,406,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Dan Musa,Dan Musa,409,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Dandume,Dandume,407,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Danja,Danja,408,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Daura,Daura,410,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Dutsi,Dutsi,411,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Dutsin Ma,Dutsin Ma,412,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Faskari,Faskari,413,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Funtua,Funtua,414,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Ingawa,Ingawa,415,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Jibia,Jibia,416,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Kafur,Kafur,417,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Kaita,Kaita,418,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Kankara,Kankara,419,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Kankia,Kankia,420,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Katsina,Katsina,421,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Kurfi,Kurfi,422,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Kusada,Kusada,423,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Mai'Adua,Mai'Adua,424,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Malumfashi,Malumfashi,425,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Mani,Mani,426,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Mashi,Mashi,427,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Matazu,Matazu,428,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Musawa,Musawa,429,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Rimi,Rimi,430,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Sabuwa,Sabuwa,431,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Safana,Safana,432,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Sandamu,Sandamu,433,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Zango,Zango,434,Katsina,Katsina,KT,Nigeria,Nigeria,NGA
+Aleiro,Aleiro,501,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Arewa Dandi,Arewa Dandi,502,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Argungu,Argungu,503,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Augie,Augie,504,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Bagudu,Bagudu,505,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Birnin Kebbi,Birnin Kebbi,506,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Bunza,Bunza,507,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Dandi,Dandi,508,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Fakai,Fakai,509,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Gwandu,Gwandu,510,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Jega,Jega,511,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Kalgo,Kalgo,512,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Koko-Besse,Koko-Besse,513,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Maiyama,Maiyama,514,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Ngaski,Ngaski,515,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Sakaba,Sakaba,516,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Shanga,Shanga,517,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Suru,Suru,518,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Wasagu-Danko,Wasagu-Danko,519,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Yauri,Yauri,520,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Zuru,Zuru,521,Kebbi,Kebbi,KB,Nigeria,Nigeria,NGA
+Adavi,Adavi,23001,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Ajaokuta,Ajaokuta,23002,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Ankpa,Ankpa,23003,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Bassa,Bassa,23004,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Dekina,Dekina,23005,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Ibaji,Ibaji,23006,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Idah,Idah,23007,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Igalamela-Odolu,Igalamela-Odolu,23008,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Ijumu,Ijumu,23009,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Kabba/Bunu,Kabba/Bunu,23010,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Kogi,Kogi,23011,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Lokoja,Lokoja,23012,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Mopa-Muro,Mopa-Muro,23013,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Ofu,Ofu,23014,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Ogori/Magongo,Ogori/Magongo,23015,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Okehi,Okehi,23016,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Okene,Okene,23017,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Olamaboro,Olamaboro,23018,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Omala,Omala,23019,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Yagba East,Yagba East,23020,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Yagba West,Yagba West,23021,Kogi,Kogi,KO,Nigeria,Nigeria,NGA
+Asa,Asa,24001,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Baruten,Baruten,24002,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Edu,Edu,24003,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Ekiti,Ekiti,24004,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Ifelodun,Ifelodun,24005,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Ilorin East,Ilorin East,24006,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Ilorin South,Ilorin South,24007,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Ilorin West,Ilorin West,24008,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Irepodun,Irepodun,24009,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Isin,Isin,24010,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Kaiama,Kaiama,24011,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Moro,Moro,24012,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Offa,Offa,24013,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Oke Ero,Oke Ero,24014,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Oyun,Oyun,24015,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Pategi,Pategi,24016,Kwara,Kwara,KW,Nigeria,Nigeria,NGA
+Agege,Agege,25001,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Ajeromi/Ifelodun,Ajeromi/Ifelodun,25002,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Alimosho,Alimosho,25003,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Amuwo Odofin,Amuwo Odofin,25004,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Apapa,Apapa,25005,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Badagry,Badagry,25006,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Epe,Epe,25007,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Eti Osa,Eti Osa,25008,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Ibeju Lekki,Ibeju Lekki,25009,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Ifako/Ijaye,Ifako/Ijaye,25010,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Ikeja,Ikeja,25011,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Ikorodu,Ikorodu,25012,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Kosofe,Kosofe,25013,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Lagos Island,Lagos Island,25020,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Lagos Mainland,Lagos Mainland,25019,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Mushin,Mushin,25014,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Ojo,Ojo,25015,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Oshodi/Isolo,Oshodi/Isolo,25016,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Shomolu,Shomolu,25017,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Surulere,Surulere,25018,Lagos,Lagos,LA,Nigeria,Nigeria,NGA
+Akwanga,Akwanga,26001,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Awe,Awe,26002,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Doma,Doma,26003,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Karu,Karu,26004,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Keana,Keana,26005,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Keffi,Keffi,26006,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Kokona,Kokona,26007,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Lafia,Lafia,26008,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Nasarawa,Nasarawa,26009,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Nasarawa Egon,Nasarawa Egon,26010,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Obi,Obi,26011,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Toto,Toto,26012,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Wamba,Wamba,26013,Nasarawa,Nasarawa,NA,Nigeria,Nigeria,NGA
+Agaie,Agaie,27001,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Agwara,Agwara,27002,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Bida,Bida,27003,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Borgu,Borgu,27004,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Bosso,Bosso,27005,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Chanchaga,Chanchaga,27006,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Edati,Edati,27007,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Gbako,Gbako,27008,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Gurara,Gurara,27009,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Katcha,Katcha,27010,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Kontagora,Kontagora,27011,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Lapai,Lapai,27012,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Lavun,Lavun,27013,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Magama,Magama,27014,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Mariga,Mariga,27015,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Mashegu,Mashegu,27016,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Mokwa,Mokwa,27017,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Munya,Munya,27018,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Paikoro,Paikoro,27019,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Rafi,Rafi,27020,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Rijau,Rijau,27021,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Shiroro,Shiroro,27022,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Suleja,Suleja,27023,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Tafa,Tafa,27024,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Wushishi,Wushishi,27025,Niger,Niger,NI,Nigeria,Nigeria,NGA
+Abeokuta North,Abeokuta North,28001,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Abeokuta South,Abeokuta South,28002,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Ado Odo/Ota,Ado Odo/Ota,28003,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Ewekoro,Ewekoro,28006,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Ifo,Ifo,28007,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Ijebu East,Ijebu East,28008,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Ijebu North,Ijebu North,28009,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Ijebu North East,Ijebu North East,28010,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Ijebu Ode,Ijebu Ode,28011,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Ikenne,Ikenne,28012,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Imeko Afon,Imeko Afon,28013,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Ipokia,Ipokia,28014,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Obafemi Owode,Obafemi Owode,28015,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Odeda,Odeda,28016,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Odogbolu,Odogbolu,28017,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Ogun Waterside,Ogun Waterside,28018,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Remo North,Remo North,28019,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Shagamu,Shagamu,28020,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Yewa North,Yewa North,28004,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Yewa South,Yewa South,28005,Ogun,Ogun,OG,Nigeria,Nigeria,NGA
+Akoko North East,Akoko North East,29001,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Akoko North West,Akoko North West,29002,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Akoko South East,Akoko South East,29003,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Akoko South West,Akoko South West,29004,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Akure North,Akure North,29005,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Akure South,Akure South,29006,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Ese Odo,Ese Odo,29007,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Idanre,Idanre,29008,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Ifedore,Ifedore,29009,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Ilaje,Ilaje,29010,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Ile Oluji/Okeigbo,Ile Oluji/Okeigbo,29011,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Irele,Irele,29012,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Odigbo,Odigbo,29013,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Okitipupa,Okitipupa,29014,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Ondo East,Ondo East,29015,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Ondo West,Ondo West,29016,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Ose,Ose,29017,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Owo,Owo,29018,Ondo,Ondo,ON,Nigeria,Nigeria,NGA
+Atakunmosa East,Atakunmosa East,30003,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Atakunmosa West,Atakunmosa West,30004,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ayedade,Ayedade,30001,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ayedire,Ayedire,30002,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Boluwaduro,Boluwaduro,30005,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Boripe,Boripe,30006,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ede North,Ede North,30007,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ede South,Ede South,30008,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Egbedore,Egbedore,30009,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ejigbo,Ejigbo,30010,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ife Central,Ife Central,30011,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ife East,Ife East,30012,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ife North,Ife North,30013,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ife South,Ife South,30014,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ifedayo,Ifedayo,30015,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ifelodun,Ifelodun,30016,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ila,Ila,30017,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ilesha East,Ilesha East,30018,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ilesha West,Ilesha West,30019,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Irepodun,Irepodun,30020,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Irewole,Irewole,30021,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Isokan,Isokan,30022,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Iwo,Iwo,30023,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Obokun,Obokun,30024,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Odo Otin,Odo Otin,30025,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Ola Oluwa,Ola Oluwa,30026,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Olorunda,Olorunda,30027,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Oriade,Oriade,30028,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Orolu,Orolu,30029,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Osogbo,Osogbo,30030,Osun,Osun,OS,Nigeria,Nigeria,NGA
+Afijio,Afijio,31001,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Akinyele,Akinyele,31002,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Atiba,Atiba,31003,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Atisbo,Atisbo,31004,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Egbeda,Egbeda,31005,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ibadan North,Ibadan North,31006,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ibadan North East,Ibadan North East,31007,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ibadan North West,Ibadan North West,31008,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ibadan South East,Ibadan South East,31009,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ibadan South West,Ibadan South West,31010,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ibarapa Central,Ibarapa Central,31011,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ibarapa East,Ibarapa East,31012,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ibarapa North,Ibarapa North,31013,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ido,Ido,31014,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Irepo,Irepo,31015,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Iseyin,Iseyin,31016,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Itesiwaju,Itesiwaju,31017,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Iwajowa,Iwajowa,31018,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Kajola,Kajola,31019,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Lagelu,Lagelu,31020,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ogbomosho North,Ogbomosho North,31021,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ogbomosho South,Ogbomosho South,31022,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ogo Oluwa,Ogo Oluwa,31023,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Olorunsogo,Olorunsogo,31024,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Oluyole,Oluyole,31025,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ona Ara,Ona Ara,31026,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Orelope,Orelope,31027,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Ori Ire,Ori Ire,31028,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Oyo East,Oyo East,31029,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Oyo West,Oyo West,31030,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Saki East,Saki East,31031,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Saki West,Saki West,31032,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Surulere,Surulere,31033,Oyo,Oyo,OY,Nigeria,Nigeria,NGA
+Barkin Ladi,Barkin Ladi,32001,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Bassa,Bassa,32002,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Bokkos,Bokkos,32003,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Jos East,Jos East,32004,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Jos North,Jos North,32005,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Jos South,Jos South,32006,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Kanam,Kanam,32007,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Kanke,Kanke,32008,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Langtang North,Langtang North,32009,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Langtang South,Langtang South,32010,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Mangu,Mangu,32011,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Mikang,Mikang,32012,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Pankshin,Pankshin,32013,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Qua'An Pan,Qua'An Pan,32014,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Riyom,Riyom,32015,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Shendam,Shendam,32016,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Wase,Wase,32017,Plateau,Plateau,PL,Nigeria,Nigeria,NGA
+Abua/Odual,Abua/Odual,33001,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Ahoada East,Ahoada East,33002,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Ahoada West,Ahoada West,33003,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Akuku Toru,Akuku Toru,33004,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Andoni,Andoni,33005,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Asari-Toru,Asari-Toru,33006,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Bonny,Bonny,33007,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Degema,Degema,33008,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Eleme,Eleme,33009,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Emuoha,Emuoha,33010,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Etche,Etche,33011,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Gokana,Gokana,33012,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Ikwerre,Ikwerre,33013,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Khana,Khana,33014,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Obio/Akpor,Obio/Akpor,33015,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Ogba/Egbema/Ndoni,Ogba/Egbema/Ndoni,33016,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Ogu Bolo,Ogu Bolo,33017,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Okrika,Okrika,33018,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Omumma,Omumma,33019,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Opobo/Nkoro,Opobo/Nkoro,33020,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Oyigbo,Oyigbo,33021,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Port-Harcourt,Port-Harcourt,33022,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Tai,Tai,33023,Rivers,Rivers,RI,Nigeria,Nigeria,NGA
+Binji,Binji,601,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Bodinga,Bodinga,602,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Dange Shuni,Dange Shuni,603,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Gada,Gada,604,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Goronyo,Goronyo,605,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Gudu,Gudu,606,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Gwadabawa,Gwadabawa,607,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Illela,Illela,608,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Isa,Isa,609,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Kebbe,Kebbe,610,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Kware,Kware,611,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Rabah,Rabah,612,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Sabon Birni,Sabon Birni,613,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Shagari,Shagari,614,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Silame,Silame,615,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Sokoto North,Sokoto North,616,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Sokoto South,Sokoto South,617,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Tambuwal,Tambuwal,618,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Tangaza,Tangaza,619,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Tureta,Tureta,620,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Wamakko,Wamakko,621,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Wurno,Wurno,622,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Yabo,Yabo,623,Sokoto,Sokoto,SO,Nigeria,Nigeria,NGA
+Ardo-Kola,Ardo-Kola,35001,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Bali,Bali,35002,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Donga,Donga,35003,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Gashaka,Gashaka,35004,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Gassol,Gassol,35005,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Ibi,Ibi,35006,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Jalingo,Jalingo,35007,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Karim Lamido,Karim Lamido,35008,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Kurmi,Kurmi,35009,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Lau,Lau,35010,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Sardauna,Sardauna,35011,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Takum,Takum,35012,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Ussa,Ussa,35013,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Wukari,Wukari,35014,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Yorro,Yorro,35015,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Zing,Zing,35016,Taraba,Taraba,TA,Nigeria,Nigeria,NGA
+Bade,Bade,701,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Bursari,Bursari,702,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Damaturu,Damaturu,703,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Fika,Fika,704,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Fune,Fune,705,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Geidam,Geidam,706,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Gujba,Gujba,707,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Gulani,Gulani,708,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Jakusko,Jakusko,709,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Karasuwa,Karasuwa,710,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Machina,Machina,711,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Nangere,Nangere,712,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Nguru,Nguru,713,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Potiskum,Potiskum,714,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Tarmuwa,Tarmuwa,715,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Yunusari,Yunusari,716,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Yusufari,Yusufari,717,Yobe,Yobe,YO,Nigeria,Nigeria,NGA
+Anka,Anka,801,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Bakura,Bakura,802,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Birnin Magaji-Kiyaw,Birnin Magaji-Kiyaw,803,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Bukkuyum,Bukkuyum,804,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Bungudu,Bungudu,805,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Gummi,Gummi,806,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Gusau,Gusau,807,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Kaura Namoda,Kaura Namoda,808,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Maradun,Maradun,809,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Maru,Maru,810,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Shinkafi,Shinkafi,811,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Talata Mafara,Talata Mafara,812,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Tsafe,Tsafe,813,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA
+Zurmi,Zurmi,814,Zamfara,Zamfara,ZA,Nigeria,Nigeria,NGA

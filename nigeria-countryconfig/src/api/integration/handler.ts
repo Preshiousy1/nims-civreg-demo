@@ -12,7 +12,11 @@ import * as Hapi from '@hapi/hapi'
 import fetch from 'node-fetch'
 import { encodeScope, Scope } from '@opencrvs/toolkit/scopes'
 import { logger } from '@countryconfig/logger'
-import { EVENTS_URL } from '@countryconfig/constants'
+import {
+  CIVREG_BRIDGE_CLIENT_ID,
+  CIVREG_BRIDGE_CLIENT_SECRET,
+  EVENTS_URL
+} from '@countryconfig/constants'
 
 interface IntegrationConfig {
   name: string
@@ -52,7 +56,30 @@ interface IntegrationConfig {
  *   ]
  * }
  */
-const INTEGRATIONS: IntegrationConfig[] = []
+const INTEGRATIONS: IntegrationConfig[] =
+  CIVREG_BRIDGE_CLIENT_ID && CIVREG_BRIDGE_CLIENT_SECRET
+    ? [
+        {
+          name: 'civreg-bridge',
+          scopes: [
+            {
+              type: 'record.action.accept',
+              options: { event: ['birth', 'death'] }
+            },
+            {
+              type: 'record.action.reject',
+              options: { event: ['birth', 'death'] }
+            },
+            {
+              type: 'record.read',
+              options: { event: ['birth', 'death'] }
+            }
+          ],
+          clientId: CIVREG_BRIDGE_CLIENT_ID,
+          clientSecret: CIVREG_BRIDGE_CLIENT_SECRET
+        }
+      ]
+    : []
 
 const INTEGRATIONS_URL = new URL('/integrations', EVENTS_URL).toString()
 

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "stub-identity-api.fullname" . }}
+  labels:
+    {{- include "stub-identity-api.labels" . | nindent 4 }}
+data:
+  PORT: {{ .Values.config.port | quote }}
+  STUB_FAIL_NIN_REQUESTS: {{ .Values.config.failNinRequests | quote }}
+  STUB_FAIL_DECEASED_STATUS: {{ .Values.config.failDeceasedStatus | quote }}
+  STUB_DELAY_MS: {{ .Values.config.delayMs | quote }}
+  STUB_READY: {{ .Values.config.ready | quote }}

@@ -25,8 +25,10 @@ import { not } from '@opencrvs/toolkit/conditionals'
 import {
   farajalandNameConfig,
   invalidNameValidator,
-  nationalIdValidator
+  nationalIdValidator,
+  ninWhenPresentValidator
 } from '@countryconfig/events/birth/validators'
+import { applicationConfig } from '@countryconfig/api/application/application-config'
 
 import {
   IdType,
@@ -49,7 +51,7 @@ export const InformantType = {
 } as const
 export type InformantTypeKey = keyof typeof InformantType
 
-const PHONE_NUMBER_REGEX = '^0(7|9)[0-9]{8}$'
+const PHONE_NUMBER_REGEX = applicationConfig.PHONE_NUMBER_PATTERN
 const informantMessageDescriptors = {
   MOTHER: {
     defaultMessage: 'Mother',
@@ -280,7 +282,7 @@ export const informant = defineFormPage({
           conditional: informantOtherThanParent
         }
       ],
-      defaultValue: 'FAR',
+      defaultValue: 'NGA',
       parent: field('informant.relation')
     },
     {
@@ -443,7 +445,7 @@ export const informant = defineFormPage({
         )
       ],
       defaultValue: {
-        country: 'FAR',
+        country: 'NGA',
         addressType: AddressType.DOMESTIC,
         administrativeArea: user('administrativeAreaId')
       },
@@ -478,9 +480,9 @@ export const informant = defineFormPage({
         {
           message: {
             defaultMessage:
-              'Must be a valid 10 digit number that starts with 0(7|9)',
+              'Must be a valid 11 digit number that starts with 07, 08 or 09',
             description:
-              'The error message that appears on phone numbers where the first two characters must be 07 or 09, and length must be 10',
+              'The error message that appears on phone numbers where the first two characters must be 07, 08 or 09, and length must be 11',
             id: 'event.birth.action.declare.form.section.informant.field.phoneNo.error'
           },
           validator: or(
@@ -489,6 +491,19 @@ export const informant = defineFormPage({
           )
         }
       ],
+      parent: field('informant.relation')
+    },
+    {
+      id: 'informant.nin',
+      type: FieldType.ID,
+      required: false,
+      secured: true,
+      label: {
+        defaultMessage: 'NIN of parent or informant',
+        description: 'Optional 11-digit Nigerian National Identification Number',
+        id: 'event.birth.action.declare.form.section.person.field.nin.label'
+      },
+      validation: [ninWhenPresentValidator('informant.nin')],
       parent: field('informant.relation')
     },
     {

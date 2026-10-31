@@ -78,8 +78,11 @@ export async function getLanguages(
   return languages.map((lang) => {
     const messages: IMessageIdentifier = {}
     csvData.forEach((row) => {
-      if (row[lang] !== undefined) {
-        messages[row.id] = row[lang]
+      const text = row[lang]
+      // Empty cells must not overwrite fallback: a blank pcm cell would
+      // hide the English defaultMessage in the client.
+      if (text !== undefined && text !== '') {
+        messages[row.id] = text
       }
     })
 

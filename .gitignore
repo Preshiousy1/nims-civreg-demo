@@ -2,3 +2,6 @@ nigeria-infrastructure/
 node_modules/
 .env
 .DS_Store
+services/**/node_modules/
+services/**/dist/
+services/**/coverage/

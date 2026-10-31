@@ -1,0 +1,3 @@
+stub-identity-api {{ .Chart.AppVersion }} (DEMO, not MOSIP)
+
+Service: {{ include "stub-identity-api.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.port }}

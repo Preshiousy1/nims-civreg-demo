@@ -42,5 +42,17 @@ export const env = cleanEnv(process.env, {
   ORGANISATION: str({
     default: 'identiko-demo',
     desc: 'Organisation running this instance, reported with telemetry. Empty by default.'
+  }),
+  CIVREG_BRIDGE_URL: str({
+    default: '',
+    desc: 'Base URL of civreg-bridge. Birth and death REGISTER return 503 if empty.'
+  }),
+  CIVREG_BRIDGE_CLIENT_ID: str({
+    default: '',
+    desc: 'DEMO system-client id pre-shared with civreg-bridge. Empty means the integration is not registered.'
+  }),
+  CIVREG_BRIDGE_CLIENT_SECRET: str({
+    default: '',
+    desc: 'DEMO system-client secret. Not a production credential.'
   })
 })

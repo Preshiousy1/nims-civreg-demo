@@ -1,0 +1,2 @@
+# Trivy ignore list. Add a CVE id only with a one-line reason.
+# CI fails on HIGH and CRITICAL. Unfixed OS CVEs are ignored via ignore-unfixed.

@@ -32,6 +32,7 @@ import { PlaceOfDeath } from './forms/pages/eventDetails'
 import { DEATH_CORRECTION_FORM } from './forms/correctionForm'
 import { dedupConfig } from './dedupConfig'
 import { Event } from '@countryconfig/events/utils'
+import { NimsRole } from '@countryconfig/data-seeding/roles/roles'
 
 export const deathEvent = defineConfig({
   id: Event.Death,
@@ -49,7 +50,7 @@ export const deathEvent = defineConfig({
     id: 'event.death.title'
   },
   fallbackTitle: {
-    id: 'event.tennis-club-membership.fallbackTitle',
+    id: 'event.death.fallbackTitle',
     defaultMessage: 'No name provided',
     description:
       'This is a fallback title if actual title resolves to empty string'
@@ -218,8 +219,9 @@ export const deathEvent = defineConfig({
           id: 'validated',
           operation: 'add',
           conditional: or(
-            user.hasRole('REGISTRATION_AGENT'),
-            user.hasRole('LOCAL_REGISTRAR')
+            user.hasRole(NimsRole.RegistrationAgent),
+            user.hasRole(NimsRole.Registrar),
+            user.hasRole(NimsRole.Checker)
           )
         }
       ],

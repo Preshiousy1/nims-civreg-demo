@@ -77,6 +77,7 @@ import {
 } from '@opencrvs/toolkit/events'
 
 import { onRegisterHandler } from './api/registration'
+import { onInterceptedRegisterHandler } from './api/registration/intercept'
 import { isServiceToken } from '@opencrvs/toolkit/authentication'
 import { workqueueconfigHandler } from './api/workqueue/handler'
 import getUserNotificationRoutes from './config/routes/userNotificationRoutes'
@@ -527,7 +528,7 @@ export async function createServer() {
 
   server.route({
     method: 'POST',
-    path: `/trigger/events/${Event.TENNIS_CLUB_MEMBERSHIP}/actions/${ActionType.REGISTER}`,
+    path: `/trigger/events/${Event.Marriage}/actions/${ActionType.REGISTER}`,
     handler: onRegisterHandler,
     options: {
       tags: ['api', 'events'],
@@ -538,20 +539,22 @@ export async function createServer() {
   server.route({
     method: 'POST',
     path: `/trigger/events/${Event.Birth}/actions/${ActionType.REGISTER}`,
-    handler: onRegisterHandler,
+    handler: onInterceptedRegisterHandler,
     options: {
       tags: ['api', 'events'],
-      description: 'Receives notifications on event actions'
+      description:
+        'Intercepts birth REGISTER, forwards to civreg-bridge, answers 202'
     }
   })
 
   server.route({
     method: 'POST',
     path: `/trigger/events/${Event.Death}/actions/${ActionType.REGISTER}`,
-    handler: onRegisterHandler,
+    handler: onInterceptedRegisterHandler,
     options: {
       tags: ['api', 'events'],
-      description: 'Receives notifications on event actions'
+      description:
+        'Intercepts death REGISTER, forwards to civreg-bridge, answers 202'
     }
   })
 

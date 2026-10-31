@@ -13,40 +13,35 @@ import { countryLogo } from '@countryconfig/api/application/country-logo'
 import { defineApplicationConfig } from '@opencrvs/toolkit/application-config'
 
 export const applicationConfig = defineApplicationConfig({
-  APPLICATION_NAME: 'Farajaland CRS',
+  APPLICATION_NAME: 'Nigeria CRS',
   COUNTRY_LOGO: countryLogo,
-  SYSTEM_IANA_TIMEZONE: 'Asia/Dhaka', // Default timezone for the country. Basis for date and time calculations during searches.
+  SYSTEM_IANA_TIMEZONE: 'Africa/Lagos', // Default timezone for the country. Basis for date and time calculations during searches.
   CURRENCY: {
-    languagesAndCountry: ['en-US'],
-    isoCode: 'USD'
+    languagesAndCountry: ['en-NG'],
+    isoCode: 'NGN'
   },
   ADMIN_STRUCTURE: [
     {
+      // id stays `province` because form fields use locationLevel('province')
       id: 'province',
       label: {
         id: 'field.address.province.label',
-        defaultMessage: 'Province',
-        description: 'Label for province in address'
+        defaultMessage: 'State',
+        description: 'Label for state in address'
       }
     },
     {
+      // id stays `district` because form fields use locationLevel('district')
       id: 'district',
       label: {
         id: 'field.address.district.label',
-        defaultMessage: 'District',
-        description: 'Label for district in address'
-      }
-    },
-    {
-      id: 'village',
-      label: {
-        id: 'field.address.village.label',
-        defaultMessage: 'Village',
-        description: 'Label for village in address'
+        defaultMessage: 'LGA',
+        description: 'Label for LGA in address'
       }
     }
   ],
-  PHONE_NUMBER_PATTERN: '^0(7|9)[0-9]{8}$',
+  // Nigeria mobile: 11 digits starting 07, 08 or 09 (e.g. 08067896546)
+  PHONE_NUMBER_PATTERN: '^0[789][0-9]{9}$',
   USER_NOTIFICATION_DELIVERY_METHOD: 'email', // or 'sms', or '' ... You can use 'sms' for WhatsApp
   INFORMANT_NOTIFICATION_DELIVERY_METHOD: 'email', // or 'sms', or '' ... You can use 'sms' for WhatsApp
   SEARCH_DEFAULT_CRITERIA: 'TRACKING_ID'

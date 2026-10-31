@@ -24,7 +24,8 @@ import { or, not } from '@opencrvs/toolkit/conditionals'
 import {
   farajalandNameConfig,
   invalidNameValidator,
-  nationalIdValidator
+  nationalIdValidator,
+  ninWhenPresentValidator
 } from '@countryconfig/events/birth/validators'
 import { InformantType } from './informant'
 import {
@@ -237,7 +238,7 @@ export const father = defineFormPage({
           conditional: requireFatherDetails
         }
       ],
-      defaultValue: 'FAR'
+      defaultValue: 'NGA'
     },
     {
       id: 'father.idType',
@@ -422,7 +423,7 @@ export const father = defineFormPage({
         )
       ],
       defaultValue: {
-        country: 'FAR',
+        country: 'NGA',
         addressType: AddressType.DOMESTIC,
         administrativeArea: user('administrativeAreaId')
       },
@@ -493,6 +494,23 @@ export const father = defineFormPage({
           conditional: requireFatherDetails
         }
       ]
+    },
+    {
+      id: 'father.nin',
+      type: FieldType.ID,
+      required: false,
+      label: {
+        defaultMessage: 'NIN of parent or informant',
+        description: 'Optional 11-digit Nigerian National Identification Number',
+        id: 'event.birth.action.declare.form.section.person.field.nin.label'
+      },
+      conditionals: [
+        {
+          type: ConditionalType.SHOW,
+          conditional: requireFatherDetails
+        }
+      ],
+      validation: [ninWhenPresentValidator('father.nin')]
     }
   ]
 })

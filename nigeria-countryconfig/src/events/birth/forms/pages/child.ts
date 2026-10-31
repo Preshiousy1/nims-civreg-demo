@@ -35,6 +35,7 @@ import {
   farajalandNameConfig,
   invalidNameValidator
 } from '@countryconfig/events/birth/validators'
+import { NimsRole } from '@countryconfig/data-seeding/roles/roles'
 
 const GenderTypes = {
   MALE: 'male',
@@ -177,10 +178,7 @@ const placeOfBirthOptions = [
     conditionals: [
       {
         type: ConditionalType.SHOW,
-        conditional: and(
-          not(user.hasRole('EMBASSY_OFFICIAL')),
-          not(user.hasRole('COMMUNITY_LEADER'))
-        )
+        conditional: not(user.hasRole(NimsRole.FieldAgent))
       }
     ]
   },
@@ -190,7 +188,7 @@ const placeOfBirthOptions = [
     conditionals: [
       {
         type: ConditionalType.SHOW,
-        conditional: not(user.hasRole('HOSPITAL_CLERK'))
+        conditional: not(user.hasRole(NimsRole.HospitalClerk))
       }
     ]
   },
@@ -200,7 +198,7 @@ const placeOfBirthOptions = [
     conditionals: [
       {
         type: ConditionalType.SHOW,
-        conditional: not(user.hasRole('HOSPITAL_CLERK'))
+        conditional: not(user.hasRole(NimsRole.HospitalClerk))
       }
     ]
   }
@@ -378,7 +376,7 @@ export const child = defineFormPage({
       ],
       parent: field('child.placeOfBirth'),
       defaultValue: {
-        country: 'FAR',
+        country: 'NGA',
         addressType: AddressType.DOMESTIC,
         administrativeArea: user('administrativeAreaId')
       },
@@ -426,7 +424,7 @@ export const child = defineFormPage({
       ],
       parent: field('child.placeOfBirth'),
       defaultValue: {
-        country: 'FAR',
+        country: 'NGA',
         addressType: AddressType.DOMESTIC,
         administrativeArea: user('administrativeAreaId')
       },

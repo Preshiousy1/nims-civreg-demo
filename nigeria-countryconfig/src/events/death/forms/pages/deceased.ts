@@ -14,6 +14,7 @@ import {
   TranslationConfig,
   ConditionalType,
   and,
+  or,
   FieldType,
   AddressType,
   PageTypes,
@@ -34,8 +35,23 @@ import {
 import {
   farajalandNameConfig,
   invalidNameValidator,
-  nationalIdValidator
+  nationalIdValidator,
+  ninWhenPresentValidator,
+  NIN_PATTERN
 } from '@countryconfig/events/birth/validators'
+
+const ADULT_AGE_DAYS = 18 * 365
+
+const deceasedIsAdult = or(
+  and(
+    field('deceased.dobUnknown').isEqualTo(true),
+    field('deceased.age').asAge().isBetween(18, 120)
+  ),
+  and(
+    not(field('deceased.dobUnknown').isEqualTo(true)),
+    field('deceased.dob').isBefore().days(ADULT_AGE_DAYS).inPast()
+  )
+)
 
 const GenderTypes = {
   MALE: 'male',
@@ -191,7 +207,7 @@ export const deceased = defineFormPage({
         description: 'This is the label for the field',
         id: `v2.event.death.action.declare.form.section.person.field.nationality.label`
       },
-      defaultValue: 'FAR'
+      defaultValue: 'NGA'
     },
     {
       id: `deceased.idType`,
@@ -229,6 +245,33 @@ export const deceased = defineFormPage({
           },
           validator: and(
             not(field('deceased.nid').isEqualTo(field('informant.nid')))
+          )
+        }
+      ]
+    },
+    {
+      id: 'deceased.nin',
+      type: FieldType.ID,
+      required: false,
+      label: {
+        defaultMessage: 'NIN of deceased',
+        description:
+          'Nigerian National Identification Number. Required when the deceased is 18 or older',
+        id: 'event.death.action.declare.form.section.deceased.field.nin.label'
+      },
+      validation: [
+        ninWhenPresentValidator('deceased.nin'),
+        {
+          message: {
+            defaultMessage:
+              'NIN is required when the deceased is 18 or older, and must be exactly 11 digits',
+            description:
+              'Error when an adult deceased has no NIN or an invalid NIN',
+            id: 'event.death.action.declare.form.section.deceased.field.nin.adult.required'
+          },
+          validator: or(
+            field('deceased.nin').matches(NIN_PATTERN),
+            not(deceasedIsAdult)
           )
         }
       ]
@@ -340,7 +383,7 @@ export const deceased = defineFormPage({
         )
       ],
       defaultValue: {
-        country: 'FAR',
+        country: 'NGA',
         addressType: AddressType.DOMESTIC,
         administrativeArea: user('administrativeAreaId')
       },

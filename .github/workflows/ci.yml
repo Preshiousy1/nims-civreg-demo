@@ -1,0 +1,144 @@
+# CI for civreg-bridge, stub-identity-api, and Helm charts.
+# No secrets in this file. GHCR login uses the built-in GITHUB_TOKEN on tags only.
+# Trivy action is SHA-pinned to v0.35.0 (immutable after the March 2026 tag incident).
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+    tags: ['v*.*.*']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: lint-and-test (${{ matrix.service }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        service: [civreg-bridge, stub-identity-api]
+    defaults:
+      run:
+        working-directory: services/${{ matrix.service }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.19.0
+      - uses: actions/setup-node@v4.4.0
+        with:
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: services/${{ matrix.service }}/pnpm-lock.yaml
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: Typecheck
+        run: pnpm lint
+      - name: Test
+        run: pnpm test:ci
+
+  helm:
+    name: helm-lint
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: azure/setup-helm@v4
+      - name: Lint charts
+        run: helm lint charts/civreg-bridge charts/stub-identity-api
+      - name: Render charts
+        run: |
+          helm template civreg-bridge charts/civreg-bridge -f charts/civreg-bridge/values-dev.yaml >/dev/null
+          helm template stub-identity-api charts/stub-identity-api -f charts/stub-identity-api/values-dev.yaml >/dev/null
+
+  build:
+    name: build-and-scan (${{ matrix.app }})
+    needs: [test, helm]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - app: civreg-bridge
+            context: services/civreg-bridge
+          - app: stub-identity-api
+            context: services/stub-identity-api
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: docker/setup-buildx-action@v3
+      - name: Image name
+        id: image
+        run: echo "name=ghcr.io/${{ github.repository_owner }}/${{ matrix.app }}" >> "$GITHUB_OUTPUT"
+      - uses: docker/metadata-action@v5
+        id: meta
+        with:
+          images: ${{ steps.image.outputs.name }}
+          tags: |
+            type=sha,prefix=sha-
+            type=semver,pattern={{version}}
+            type=raw,value=0.1.0,enable=${{ github.ref_type != 'tag' }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          load: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Trivy scan
+        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
+        with:
+          image-ref: ${{ fromJSON(steps.meta.outputs.json).tags[0] }}
+          format: table
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: os,library
+          severity: HIGH,CRITICAL
+          trivyignores: .trivyignore
+      - name: Login GHCR
+        if: github.ref_type == 'tag'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push images
+        if: github.ref_type == 'tag'
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+
+  package:
+    name: package-charts
+    needs: [build]
+    if: github.ref_type == 'tag'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: azure/setup-helm@v4
+      - name: Set chart appVersion from git tag
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          echo "Using appVersion ${VERSION}"
+          sed -i "s/^appVersion:.*/appVersion: \"${VERSION}\"/" charts/civreg-bridge/Chart.yaml
+          sed -i "s/^appVersion:.*/appVersion: \"${VERSION}\"/" charts/stub-identity-api/Chart.yaml
+          helm lint charts/civreg-bridge charts/stub-identity-api
+          helm package charts/civreg-bridge
+          helm package charts/stub-identity-api
+      - uses: actions/upload-artifact@v4
+        with:
+          name: helm-charts
+          path: '*.tgz'

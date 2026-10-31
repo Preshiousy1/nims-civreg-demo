@@ -1,0 +1,103 @@
+# Non-secret defaults. Secret values come from `existingSecret` (Vault later).
+replicaCount: 1
+
+image:
+  repository: services-civreg-bridge
+  pullPolicy: IfNotPresent
+  tag: "0.1.0"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  automount: false
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext:
+  fsGroup: 1000
+  runAsUser: 1000
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+  capabilities:
+    drop:
+      - ALL
+
+service:
+  type: ClusterIP
+  port: 3042
+
+# Name of a Secret that already exists in the namespace.
+# Expected keys: DATABASE_URL, JWT_SECRET, OPENCRVS_CLIENT_ID, OPENCRVS_CLIENT_SECRET
+# Optional for postgres.devInstall: postgres-password
+existingSecret: civreg-bridge
+
+config:
+  port: "3042"
+  runMigrations: "false"
+  stubIdentityUrl: http://stub-identity-api:3041
+  stubRetryAttempts: "3"
+  stubRetryDelayMs: "200"
+  openCrvsTokenUrl: http://gateway.opencrvs-dev.svc.cluster.local:7070/auth/token
+  openCrvsEventsUrl: http://gateway.opencrvs-dev.svc.cluster.local:7070/events
+  # Compose Kafka is plaintext on the host. Strimzi mTLS is not in this demo.
+  kafkaBrokers: host.docker.internal:9092
+
+livenessProbe:
+  httpGet:
+    path: /health/live
+    port: http
+  initialDelaySeconds: 10
+  periodSeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /health/ready
+    port: http
+  initialDelaySeconds: 5
+  periodSeconds: 5
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+postgres:
+  # Laptop-only bundled Postgres. Not a third-party chart.
+  devInstall: false
+  image: postgres:16-alpine
+  user: civreg
+  database: civreg
+  persistence:
+    size: 1Gi
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+migration:
+  backoffLimit: 5
+
+hostAliases: []
+
+nodeSelector: {}
+affinity: {}
+tolerations: []

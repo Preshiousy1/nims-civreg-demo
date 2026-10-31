@@ -1,0 +1,8 @@
+zone,statename,statecode,lganame,lgacode,office_name,demo
+North Central,Nasarawa,NA,Lafia,26008,DEMO Nasarawa Central Registry (Lafia),true
+North East,Borno,BR,Maiduguri,124,DEMO Borno Central Registry (Maiduguri),true
+North West,Kano,KN,Kano Municipal,20043,DEMO Kano Municipal Registry,true
+South East,Enugu,EN,Enugu North,14004,DEMO Enugu North Registry,true
+South South,Rivers,RI,Port-Harcourt,33022,DEMO Port Harcourt Registry,true
+South West,Lagos,LA,Ikeja,25011,DEMO Ikeja Registry,true
+FCT,Fct,FC,Municipal Area Council,15006,DEMO FCT Municipal Registry (Abuja),true

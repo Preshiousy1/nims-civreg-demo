@@ -1,0 +1,64 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "civreg-bridge.fullname" . }}-migrate
+  labels:
+    {{- include "civreg-bridge.labels" . | nindent 4 }}
+  annotations:
+    {{- if .Values.postgres.devInstall }}
+    # Bundled Postgres is created with the release, so the first migrate
+    # cannot run as pre-install (that hook runs before any resources).
+    "helm.sh/hook": post-install,pre-upgrade
+    {{- else }}
+    "helm.sh/hook": pre-install,pre-upgrade
+    {{- end }}
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  backoffLimit: {{ .Values.migration.backoffLimit }}
+  template:
+    metadata:
+      labels:
+        {{- include "civreg-bridge.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: migrate
+    spec:
+      restartPolicy: Never
+      {{- with .Values.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: migrate
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: {{ include "civreg-bridge.image" . | quote }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["node", "dist/database/run-migrations.js"]
+          env:
+            - name: PORT
+              value: {{ .Values.config.port | quote }}
+            - name: RUN_MIGRATIONS
+              value: "false"
+            - name: STUB_IDENTITY_URL
+              value: {{ .Values.config.stubIdentityUrl | quote }}
+            - name: OPENCRVS_TOKEN_URL
+              value: {{ .Values.config.openCrvsTokenUrl | quote }}
+            - name: OPENCRVS_EVENTS_URL
+              value: {{ .Values.config.openCrvsEventsUrl | quote }}
+            - name: KAFKA_BROKERS
+              value: {{ .Values.config.kafkaBrokers | quote }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.existingSecret }}
+          {{- with .Values.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}

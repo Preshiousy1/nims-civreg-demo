@@ -223,7 +223,7 @@ export const spouse = defineFormPage({
           conditional: requireSpouseDetails
         }
       ],
-      defaultValue: 'FAR'
+      defaultValue: 'NGA'
     },
     {
       id: 'spouse.idType',
@@ -408,7 +408,7 @@ export const spouse = defineFormPage({
         )
       ],
       defaultValue: {
-        country: 'FAR',
+        country: 'NGA',
         addressType: AddressType.DOMESTIC,
         administrativeArea: user('administrativeAreaId')
       },

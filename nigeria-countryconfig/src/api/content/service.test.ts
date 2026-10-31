@@ -39,4 +39,25 @@ describe('getLanguages', () => {
     // no countryconfig.csv, and all of their copy still lives in client.csv.
     await expect(getLanguages('does-not-exist')).resolves.toEqual([])
   })
+
+  it('serves Nigerian Pidgin for login and birth NIN keys only', async () => {
+    const languages = await getLanguages('client')
+    const pcm = languages.find(({ lang }) => lang === 'pcm')
+    expect(pcm).toBeDefined()
+    expect(pcm!.messages['event.birth.action.declare.form.section.person.field.nin.label']).toContain(
+      'NIN'
+    )
+    expect(pcm!.messages['error.invalidNin']).toContain('11')
+    // Untranslated keys stay off the pcm bundle so the client can fall back.
+    expect(pcm!.messages['action.action']).toBeUndefined()
+  })
+
+  it('keeps FormatJS placeholders in the Pidgin login copy', async () => {
+    const languages = await getLanguages('login')
+    const pcm = languages.find(({ lang }) => lang === 'pcm')
+    expect(pcm).toBeDefined()
+    expect(pcm!.messages['login.stepTwoInstruction.email']).toContain('{email}')
+    expect(pcm!.messages['login.stepTwoInstruction.sms']).toContain('{number}')
+    expect(pcm!.messages['login.resend']).toContain('{notificationMethod')
+  })
 })

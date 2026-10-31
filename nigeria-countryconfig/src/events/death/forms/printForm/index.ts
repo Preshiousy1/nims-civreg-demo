@@ -151,7 +151,7 @@ export const DEATH_CERTIFICATE_COLLECTOR_FORM = defineActionForm({
                   description: 'Title for the data entry',
                   id: 'event.death.action.certificate.form.section.collectPayment.fee.label'
                 },
-                value: '$15.00'
+                value: 'NGN 15,000'
               }
             ]
           }
@@ -200,7 +200,7 @@ export const DEATH_CERTIFICATE_COLLECTOR_FORM = defineActionForm({
                   description: 'Title for the data entry',
                   id: 'event.death.action.certificate.form.section.collectPayment.fee.label'
                 },
-                value: '$5.00'
+                value: 'NGN 5,000'
               }
             ]
           }

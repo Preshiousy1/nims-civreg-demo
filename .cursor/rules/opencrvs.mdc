@@ -1,0 +1,17 @@
+---
+description: OpenCRVS NIMS demo project rules
+alwaysApply: true
+---
+
+# Project rules: OpenCRVS NIMS demo
+
+- Target is OpenCRVS core v2.1.x (see OPENCRVS_CORE_IMAGE_TAG). Never rely on memory for OpenCRVS APIs, config keys, scopes or folder names.
+- Before writing code, read the docs at documentation.opencrvs.org (technical/guides) and the types inside node_modules/@opencrvs/toolkit. If you cannot find something, say so and stop. Do not invent.
+- Never invent real-world data (LGA names, office names, NINs). Use only data files I supply. Mark all demo data as demo.
+- Small steps. One concern per commit. Show me the diff plan before large edits.
+- After every change, append 3 to 5 lines to LEARNING_LOG.md: what changed, which file, why, how I verify it.
+- Follow the template's existing patterns before adding new ones.
+- No secrets in git. Use .env.example and Kubernetes Secrets.
+- Write tests for every new service function. TypeScript strict mode.
+- Plain, short README and comments. No marketing language.
+- Do not do [YOU] sprint-plan blocks. Do not start the next [AI] or [BOTH] block until the user says the previous [YOU] block is done.

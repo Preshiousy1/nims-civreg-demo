@@ -1,0 +1,10 @@
+civreg-bridge {{ .Chart.AppVersion }}
+
+Service: {{ include "civreg-bridge.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.port }}
+Secret (referenced, not created): {{ .Values.existingSecret }}
+Bundled Postgres: {{ .Values.postgres.devInstall }}
+Kafka (plaintext compose unless you change values): {{ .Values.config.kafkaBrokers }}
+
+Strimzi mTLS is not in this demo. Kafka in values-dev is host.docker.internal:9092.
+
+kubectl -n {{ .Release.Namespace }} rollout status deploy/{{ include "civreg-bridge.fullname" . }}

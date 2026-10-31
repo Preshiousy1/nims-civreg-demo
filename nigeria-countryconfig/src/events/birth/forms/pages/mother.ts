@@ -23,6 +23,7 @@ import { or, not, never } from '@opencrvs/toolkit/conditionals'
 import {
   invalidNameValidator,
   nationalIdValidator,
+  ninWhenPresentValidator,
   farajalandNameConfig
 } from '@countryconfig/events/birth/validators'
 import { InformantType } from './informant'
@@ -235,7 +236,7 @@ export const mother = defineFormPage({
           conditional: requireMotherDetails
         }
       ],
-      defaultValue: 'FAR'
+      defaultValue: 'NGA'
     },
     {
       id: 'mother.idType',
@@ -390,7 +391,7 @@ export const mother = defineFormPage({
         )
       ],
       defaultValue: {
-        country: 'FAR',
+        country: 'NGA',
         addressType: AddressType.DOMESTIC,
         administrativeArea: user('administrativeAreaId')
       },
@@ -461,6 +462,40 @@ export const mother = defineFormPage({
           conditional: requireMotherDetails
         }
       ]
+    },
+    {
+      id: 'mother.genotype',
+      type: FieldType.TEXT,
+      required: false,
+      analytics: true,
+      label: {
+        defaultMessage: 'Genotype',
+        description: 'This is the label for the field',
+        id: 'event.birth.action.declare.form.section.person.field.genotype.label'
+      },
+      conditionals: [
+        {
+          type: ConditionalType.SHOW,
+          conditional: requireMotherDetails
+        }
+      ]
+    },
+    {
+      id: 'mother.nin',
+      type: FieldType.ID,
+      required: false,
+      label: {
+        defaultMessage: 'NIN of parent or informant',
+        description: 'Optional 11-digit Nigerian National Identification Number',
+        id: 'event.birth.action.declare.form.section.person.field.nin.label'
+      },
+      conditionals: [
+        {
+          type: ConditionalType.SHOW,
+          conditional: requireMotherDetails
+        }
+      ],
+      validation: [ninWhenPresentValidator('mother.nin')]
     },
     {
       id: 'mother.previousBirths',

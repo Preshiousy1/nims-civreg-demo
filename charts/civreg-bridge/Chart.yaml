@@ -1,0 +1,6 @@
+apiVersion: v2
+name: civreg-bridge
+description: DEMO civil-registration bridge. Identity is a stub, not MOSIP.
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

@@ -89,6 +89,14 @@ function getInformant(eventType: string, declaration: Record<string, any>) {
       : declaration['informant.name']
   }
 
+  if (eventType === Event.Marriage) {
+    return declaration['informant.relation'] === 'GROOM'
+      ? declaration['groom.name']
+      : declaration['informant.relation'] === 'BRIDE'
+        ? declaration['bride.name']
+        : declaration['informant.name']
+  }
+
   throw new Error('Invalid event type')
 }
 
@@ -210,6 +218,10 @@ export async function sendInformantNotification({
   token: string
   registrationNumber?: string
 }) {
+  if (event.type === Event.Marriage) {
+    return
+  }
+
   try {
     const notificationParams = await getNotificationParams(
       event,

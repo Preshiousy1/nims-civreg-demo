@@ -1,0 +1,16 @@
+# Docker Desktop + local OpenCRVS (opencrvs-dev) + compose Kafka on :9092
+image:
+  repository: services-civreg-bridge
+  pullPolicy: IfNotPresent
+  tag: "0.1.0"
+
+existingSecret: civreg-bridge
+
+config:
+  stubIdentityUrl: http://stub-identity-api.civreg.svc.cluster.local:3041
+  kafkaBrokers: host.docker.internal:9092
+  openCrvsTokenUrl: http://gateway.opencrvs-dev.svc.cluster.local:7070/auth/token
+  openCrvsEventsUrl: http://gateway.opencrvs-dev.svc.cluster.local:7070/events
+
+postgres:
+  devInstall: true

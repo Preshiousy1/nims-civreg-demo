@@ -9,7 +9,7 @@
  * Copyright (C) The OpenCRVS Authors located at https://github.com/opencrvs/opencrvs-core/blob/master/AUTHORS.
  */
 import { defineFormConditional } from '@opencrvs/toolkit/conditionals'
-import { and, field } from '@opencrvs/toolkit/events'
+import { and, field, or } from '@opencrvs/toolkit/events'
 
 export const MAX_NAME_LENGTH = 32
 
@@ -44,6 +44,21 @@ export const nationalIdValidator = (fieldId: string) => ({
       }
     }
   })
+})
+
+/** Nigerian NIN: exactly 11 digits. Empty is allowed (use a second validator when required). */
+export const NIN_PATTERN = '^[0-9]{11}$'
+
+export const ninWhenPresentValidator = (fieldId: string) => ({
+  message: {
+    defaultMessage: 'NIN must be exactly 11 digits',
+    description: 'Error message when a NIN is present but not 11 digits',
+    id: 'error.invalidNin'
+  },
+  validator: or(
+    field(fieldId).matches(NIN_PATTERN),
+    field(fieldId).isFalsy()
+  )
 })
 
 export const farajalandNameConfig = {

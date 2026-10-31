@@ -146,7 +146,7 @@ export const BIRTH_CERTIFICATE_COLLECTOR_FORM = defineActionForm({
                   description: 'Title for the data entry',
                   id: 'event.birth.action.certificate.form.section.collectPayment.fee.label'
                 },
-                value: '$15.00'
+                value: 'NGN 15,000'
               }
             ]
           }
@@ -203,7 +203,7 @@ export const BIRTH_CERTIFICATE_COLLECTOR_FORM = defineActionForm({
                   description: 'Title for the data entry',
                   id: 'event.birth.action.certificate.form.section.collectPayment.fee.label'
                 },
-                value: '$7.00'
+                value: 'NGN 7,500'
               }
             ]
           }
@@ -252,7 +252,7 @@ export const BIRTH_CERTIFICATE_COLLECTOR_FORM = defineActionForm({
                   description: 'Title for the data entry',
                   id: 'event.birth.action.certificate.form.section.collectPayment.fee.label'
                 },
-                value: '$5.00'
+                value: 'NGN 5,000'
               }
             ]
           }
