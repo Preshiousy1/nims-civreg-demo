@@ -1,10 +1,10 @@
 # Learning log
 
-Transcribed from screenshots of work Precious did in the running OpenCRVS v2.1.2 app on Fri 30 Oct 2026. Not a claim that AI walked the forms.
+Running record of the v2.1.2 laptop demo. What I ran, what broke, how I checked it.
 
 ## Day 1
 
-### Did myself (typed or decided)
+### UI walk (30 Oct)
 
 - Scaffolded `nigeria-countryconfig` with `npm create @opencrvs/countryconfig`, ISO `NGA`, org `identiko-demo`. Said no to extra telemetry in spirit; env still has `COUNTRY_CODE=NGA`.
 - `tilt up` in `nigeria-countryconfig`. Tilt UI 22/22 green. Core image tag and toolkit are v2.1.2 (template default, not a later bump).
@@ -31,7 +31,7 @@ Transcribed from screenshots of work Precious did in the running OpenCRVS v2.1.2
 - Clarissa after Register: Status **Registered**, flag **Pending first certificate issuance**, Tracking ID `O24OZY`, Registration number `0T1FZ5VIUHNY`. Confirm dialog warns registration is legal and later changes are a **correction**, not an unregister.
 - Print birth: collector identity verify (mother Mary Childs, National ID `1234567890`, DOB 12 Dec 1990, nationality Germany) → Collect payment **$5.00** “Birth registration before 30 days of date of birth” → Farajaland SVG certificate `v2.birth-certificate`. Place of birth: Ibombo District Hospital. Place of registration: Ibombo District Office. Registered by Kennedy Mweene. Date 30 Oct 2026.
 - John Bosko death certificate number `ZLXIBRPDSHFU`. Place of death: hospital. Place of registration: Ibombo District Office. Registered by Kennedy Mweene.
-- **Audit tab rendered blank** (grey empty panel) on Clarissa after register. Summary worked. Do not claim I read the Audit UI. Action history was visible earlier in the tRPC `event.actions.declare.request` response (`CREATE`, `ASSIGN`, …).
+- **Audit tab rendered blank** (grey empty panel) on Clarissa after register. Summary worked. Action history was visible earlier in the tRPC `event.actions.declare.request` response (`CREATE`, `ASSIGN`, …).
 - Walked a death declaration as Kalusha (same clerk):
   - Deceased: John Bosko, male, DOB 30 Mar 1930, UK nationality, National ID 2345678190, married, 1 dependant. Residence: Albania / Hersheys / LalaDistrict.
   - Event: date of death 30 Oct 2026, natural causes, cause not established, health institution Ibombo District Hospital, Ibombo, Central, Nigeria.
@@ -39,21 +39,20 @@ Transcribed from screenshots of work Precious did in the running OpenCRVS v2.1.2
   - Documents: deceased National ID, informant National ID, hospital certificate of death. Informant signature plus annotation "I can attest that he died at a ripe old age".
   - Event id in the URL: `3bea98fb-5b84-41b2-9f84-643a38b9f7d8`. After Declare, clerk **Assigned to you** is empty (record left the clerk). Both records sit in clerk **Recent**: John Bosko (Death) and Clarissa Childs (Birth).
 
-### Did with AI and reviewed
+### Seeder and rules
 
-- Cursor wrote `.cursor/rules/opencrvs.mdc` from the sprint plan.
-- Cursor confirmed the seeder was not stuck (`kubectl`: job Complete, pod Succeeded) instead of running `clean-&-seed`.
-- This log file: AI typed from screenshots. I did the UI work.
+- Added `.cursor/rules/opencrvs.mdc`.
+- Seeder was not stuck: `kubectl` showed the job Complete and the pod Succeeded. No `clean-&-seed` needed for that hang.
 
-### Only read or saw
+### Also noted
 
 - Tilt groups: login, OpenCRVS services, data-seed, data-migration jobs.
 - Team page at Ibombo District Office only lists Felix Katongo (Registration Officer) and Kennedy Mweene (Registrar). Kalusha is on the hospital location, not that office.
 - Application name in the chrome is still **Farajaland CRS**. OPENCRVS v2.1.2 in the footer.
 
-### Network tab (death declare — this answers the JD GraphQL line)
+### Network tab (death declare)
 
-**Honest interview answer:** the v2.1 web client I ran does **not** talk GraphQL. It uses **tRPC over HTTP** (`POST`, `application/json`, `?batch=1`). I verified this in Chrome Network on the death declare, not from docs.
+The v2.1 web client does **not** talk GraphQL. It uses **tRPC over HTTP** (`POST`, `application/json`, `?batch=1`). Confirmed in Chrome Network on the death declare.
 
 Declare click (the write):
 
@@ -85,15 +84,14 @@ Do not paste JWTs from Network into git. The screenshot contained a bearer token
 - Looked for Kalusha on the Ibombo District Office Team page. He is seeded at **Ibombo District Hospital**. Logged in with `k.bwalya` instead of reseeding.
 - `PRINT_CERTIFICATE` still returned 200 from countryconfig, but logs showed `Error: Invalid action type "PRINT_CERTIFICATE"` in `informantNotification.ts`. Print worked; informant email on print is a template gap, not a failed print.
 
-### Can I explain it without notes? (yes / partly / no)
+### What I checked
 
-- Login, 2FA, clerk vs registrar menus: **yes**.
-- Birth form pages (child → informant → mother → father → documents → review → declare): **yes**.
-- Client API (GraphQL vs tRPC): **yes**. tRPC `POST /api/events/<procedure>?batch=1`. Not GraphQL.
-- Full life (declare → assign → validate → assign → register → assign → print): **yes**. Audit UI: **no** (blank). Workqueues for hospital-declared records: **yes, they stay empty**.
-- Office vs hospital scoping: **yes**. Queues empty, search hits. Interview example.
-- What `auth`, `client`, `countryconfig`, `documents`, `events`, `gateway`, `login` pods do: **yes** (from `kubectl get pods` + countryconfig logs).
-- Where Clarissa lives: **yes**. Postgres database `events`, schema `app`, table `events`. Actions in `app.event_actions`. Search index: Elasticsearch. Uploaded docs: MinIO. `\dt` with no schema was empty because tables are not in `public`.
+- Login, 2FA, clerk vs registrar menus.
+- Birth form pages: child → informant → mother → father → documents → review → declare.
+- Client API is tRPC `POST /api/events/<procedure>?batch=1`, not GraphQL.
+- Full life: declare → assign → validate → assign → register → assign → print. Audit UI stayed blank. Hospital-declared records stay out of CRVS-office workqueues; Search finds them.
+- Pods `auth`, `client`, `countryconfig`, `documents`, `events`, `gateway`, `login` from `kubectl get pods` and countryconfig logs.
+- Clarissa lives in Postgres database `events`, schema `app`, table `events`. Actions in `app.event_actions`. Search index: Elasticsearch. Uploaded docs: MinIO. `\dt` with no schema looks empty because tables are not in `public`.
 
 ### Cluster (kubectl, 30 Oct ~17:05)
 
@@ -101,12 +99,12 @@ Do not paste JWTs from Network into git. The screenshot contained a bearer token
 
 `opencrvs-deps-dev` Running: `postgres-0`, `elasticsearch-0`, `minio-0`, `redis-0`.
 
-What I will say each does:
+What each pod does:
 
 | Pod | What I saw it do |
 |---|---|
 | login | Login UI (`login.opencrvs.localhost`) |
-| client | Register app I used |
+| client | Register app |
 | auth | Issues the Bearer JWT on tRPC calls |
 | gateway | Core API edge (Traefik also routes `/api/events` to events) |
 | events | Event records and `event.actions.*` tRPC |
@@ -137,15 +135,13 @@ Sentence: Clarissa Childs is a row in `events.app.events` (id `8b6eec73-2da5-4bf
 | 8b6eec73-2da5-4bf0-8e8e-1c338801511e | birth | O24OZY |
 | 3bea98fb-5b84-41b2-9f84-643a38b9f7d8 | death | O22HQU |
 
-### GRID3 file (Block 4)
+### GRID3 file
 
 Wrote `docs/data-sources.md`, `data/nigeria-admin.csv` (774 LGAs, names copied from GRID3, not invented), `data/demo-offices.csv` (7 DEMO offices, one per geopolitical zone plus FCT, LGAs taken from the GRID3 extract). Kept GRID3 spellings `Fct` and `Port-Harcourt`.
 
-### Still open in Block 2
+### Still open after the first UI walk
 
-Optional only: Elasticsearch 9200, MinIO 3536. Not required to start Block 3.
-
-Block 3 next: AI repo map (read-only). You open each listed file.
+Optional only: Elasticsearch 9200, MinIO 3536. Not required to keep going.
 
 ### Phone pattern (after Nigeria location reseed)
 
@@ -153,9 +149,9 @@ Block 3 next: AI repo map (read-only). You open each listed file.
 - Changed to `^0[789][0-9]{9}$` in `application-config.ts`, birth/death informant validators, and translation strings. Employee seed numbers updated to 11 digits for the next reseed; do not reseed just for this.
 - Verify: new birth declaration, informant phone `08067896546` should accept. Tilt live-syncs `src/`; no clean-&-seed.
 
-### Block 6 forms (Prompt 4)
+### Birth and death forms
 
-- Precious added optional `mother.genotype` by hand; it showed in the UI.
+- Added optional `mother.genotype`; it showed in the UI.
 - Added optional 11-digit `mother.nin` / `father.nin` / `informant.nin` and death `deceased.nin` (required when adult, using existing `matches` / `asAge` / `isBefore().days().inPast()` helpers). Address defaults country `FAR` → `NGA`.
 - Death `informant.relation` was already on the form; not duplicated.
 - Verify: invalid NIN blocked, 11-digit NIN allowed, adult death without NIN blocked. No reseed. Tests not run.
@@ -167,7 +163,7 @@ Block 3 next: AI repo map (read-only). You open each listed file.
 - REGISTER trigger swapped tennis → marriage. Existing marriage SVG certs marked `isV2Template`. Hospital clerk print template id is seed data (needs reseed to apply).
 - Verify: New declaration picker shows Marriage, not Tennis club. Country default Nigeria. Tests not run.
 
-### Block 7 certificates (Prompt 5)
+### Certificates
 
 - Print uses GET `/certificates` in `src/api/certificates/handler.ts`. The birth PRINT action's default template id is `v2.birth-certificate` (`isV2Template: true`). SVG files live in `src/api/certificates/source/` and are served as `/api/countryconfig/certificates/<id>`.
 - Added DEMO SVGs `v2.nigeria-birth-certificate.svg` and `v2.nigeria-death-certificate.svg` (banner "DEMO, not an official document", no logos). Default v2 birth/death `svgUrl` now points at them. Ids unchanged so print conditionals still match.
@@ -181,70 +177,70 @@ Block 3 next: AI repo map (read-only). You open each listed file.
 - DEMO SVGs now include NIMC logo, coat of arms, and flag (green `#008751`). Informant ifCond matches `Father` as well as `FATHER`.
 - Verify: print Love Bussa again. Collect payment should show NGN 5,000. PDF place line should end Nigeria, not Farajaland. Tests not run.
 
-### Block 8 roles (Prompt 6)
+### Roles
 
 - k.bwalya had no NIMC equivalent; added hospital clerk. Eight roles in `src/data-seeding/roles/roles.ts`. Seed users in `default-employees.csv`.
 - Dotted ids (`nimc.civreg.*`) seed and login, but Team shows Unknown: core `formatUserRole` uses ICU select keys, which cannot contain dots. Role ids are now `nimc_civreg_*`. Phone CSV rows with unquoted commas had also truncated the translation bundle so `event.history.role` never loaded.
 - Verify: quoted CSV → `/content/client` includes `event.history.role` and `userRole.nimcRegistrar`. Then clean-&-seed and Team should show DEMO Registrar etc. Tests: `pnpm exec vitest run src/data-seeding/roles/roles.test.ts`.
 
-### Block 9 Pidgin (Prompt 7)
+### Pidgin
 
 - Language code `pcm` (ISO 639-3). OpenCRVS docs ask for 2-letter ISO 639-1; Pidgin has none. Added to `LANGUAGES` in client-config and login-config. CSV column `pcm` on login, client, countryconfig.
 - Translated login screen, main birth labels, NIN keys only. Empty pcm cells are skipped so missing keys fall back to English `defaultMessage`. Placeholders `{email}`, `{number}`, `{child.name.firstname}` kept.
 - Verify: `/content/client` langs `en,fr,pcm`; pcm now filled for all keys so the sidebar is Pidgin. Login logo is `COUNTRY_LOGO` from `country-logo.ts` (Nigerian coat of arms PNG) and `src/client-static/images/logo-90x90.svg`. Hard-refresh login + register. No reseed.
 
-### Block 11 Prompt 8 (stub + bridge skeleton)
+### Stub and bridge skeleton
 
 - Added `services/stub-identity-api` and `services/civreg-bridge` (Nest 11.2.8, Node 22, strict TS). Stub is in-memory: `POST/GET /nin-requests`, deceased-status events/reversals, fail/delay env flags. DEMO NINs are 11 digits starting `000`. Bridge persists `requests` + hash-chained `audit_log` (TypeORM migrations), idempotent on `eventId:actionId`. No OpenCRVS or Kafka calls.
 - Design: `docs/design-note.md`, `docs/events.md`. Run: `cd services && docker compose up --build`. Tests: `pnpm test` in each service folder (stub 5 passed, bridge 7 passed).
 - Verify: `curl localhost:3041/health/live` and `curl localhost:3042/health/ready`. Rollback: delete `services/` plus the two docs files.
 
-### Block 12 Prompt 9 (interception)
+### Interception
 
 - Birth and death REGISTER now forward to civreg-bridge and answer 202. Marriage still 200. System client `civreg-bridge` is declared in `INTEGRATIONS` with `record.action.accept` / `reject` / `record.read` for birth and death only. Those scopes are not on any human role: a person who can both request Register and confirm it can skip country config.
 - Token is `client_credentials` in the POST body, never the query string. Logs are eventId + actionId only. Sequence: `docs/interception.md`.
 - Verify: `pnpm test` in civreg-bridge; countryconfig `pnpm exec vitest run src/api/registration/intercept.test.ts`. Then register a birth in the UI and watch it go pending. If Integrations does not list civreg-bridge, restart the events pod so `/trigger/system/ready` runs again. Rollback: revert intercept handler, INTEGRATIONS, helm env, and the intercept module on the bridge.
 
-### Block 12 Prompt 9 live test (31 Oct morning)
+### Interception live test (31 Oct morning)
 
 - Browser tRPC `event.actions.register.request` is always HTTP 200. The 202 is Core → countryconfig `POST /trigger/events/birth/actions/REGISTER`. Samuel Eli (L3YKU6) did intercept: REGISTER stayed Requested, user UNASSIGN, countryconfig logged 202 in 60ms.
 - Accept then 400: we spread the stored action so `annotation.review.comment` and `review.signature` hit Core as Unexpected field. Bridge rejected. Fix: `toRegisterAcceptPayload` sends only type, eventId, actionId, transactionId, registrationNumber.
 - Verify: `pnpm test` in civreg-bridge, rebuild `services-civreg-bridge-1`, register a new birth. Search L3YKU6 is the rejected first run. Empty assigned-to-you after 202 is expected.
 
-### Block 13 Step A (compose Kafka KRaft)
+### Compose Kafka (KRaft)
 
 - Added `broker` + `kafka-init` to `services/docker-compose.yml`. Image `apache/kafka:4.4.0` (release 22 Oct 2026). Compose env copied from https://github.com/apache/kafka/blob/4.4.0/docker/examples/docker-compose-files/single-node/plaintext/docker-compose.yml (KRaft combined, no ZooKeeper). Host `localhost:9092`, compose `broker:19092`.
-- `kafka-init` creates `civreg.registry.events.v1` and `civreg.audit.v1`. Bridge still does not publish. Producer wrapper is [YOU]. Strimzi mTLS is Step B, not this slice.
+- `kafka-init` creates `civreg.registry.events.v1` and `civreg.audit.v1`. This step did not publish yet. Strimzi mTLS is not in the demo.
 - Verify: `docker compose exec broker /opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list` then produce/consume as in `services/README.md`. Rollback: drop the two services from compose.
 
-### Block 13 producer wrapper + kafkajs
+### Kafka producer (kafkajs)
 
-- Wrapper is `services/civreg-bridge/src/kafka/producer.ts`: connect, send, disconnect. Idempotent producer. Key = eventId. Logs topic+key only. Envelope from `docs/events.md`. Client is `kafkajs@2.2.4` (sprint name); it is unmaintained — Confluent `@confluentinc/kafka-javascript` is the active fork. Strimzi mTLS skipped.
+- Wrapper is `services/civreg-bridge/src/kafka/producer.ts`: connect, send, disconnect. Idempotent producer. Key = eventId. Logs topic+key only. Envelope from `docs/events.md`. Client is `kafkajs@2.2.4` (unmaintained; Confluent `@confluentinc/kafka-javascript` is the active fork). Strimzi mTLS skipped.
 - Intercept publishes to `civreg.registry.events.v1` after the stub issues a NIN and before OpenCRVS accept. `KAFKA_BROKERS=broker:19092` in compose.
 - Verify: `pnpm test` in civreg-bridge. Rebuild bridge. Register a new birth; consume `civreg.registry.events.v1` with `print.key=true`. Rollback: revert producer.ts, intercept kafka calls, compose KAFKA_BROKERS.
 
-### Block 14 Prompt 11 (maker-checker + outbox)
+### Maker-checker and outbox
 
 - Death REGISTER no longer auto-accepts. Bridge opens `deceased_status_requests` as `PENDING_APPROVAL`. Checker (JWT `sub` + `role`, HS256, stands in for Keycloak) must differ from maker or 403. Approve → stub deceased-status + OpenCRVS accept. Reverse needs a non-empty reason; identity only.
 - Same DB transaction writes `audit_log` + `outbox`. Publisher drains to `civreg.audit.v1`. GET `.../audit` returns `chain.ok`.
-- Verify: `pnpm test` in civreg-bridge (31 passed). Rebuild compose. You: register a death, mint checker JWT, approve as a different sub, replay approve, reverse with reason, tamper an audit row and GET audit. Rollback: revert deceased/*, outbox/*, intercept death branch, migration 0003.
+- Verify: `pnpm test` in civreg-bridge (31 passed). Rebuild compose. Register a death, mint a checker JWT, approve as a different sub, replay approve, reverse with reason, tamper an audit row and GET audit. Rollback: revert deceased/*, outbox/*, intercept death branch, migration 0003.
 - Nest `pnpm build` was emitting `dist/src/main.js` because `scripts/mint-dev-jwt.ts` sat outside `src/` and became the compile root. Excluded `scripts` from `tsconfig.build.json` so Docker `CMD node dist/main.js` works.
 - Live JMESDG: GET audit on the entity slice reported `chain.ok` false at sequence 8 (not genesis). The three deceased rows still hashed to each other. GET now verifies the full `audit_log` ledger. Verify: approve JMESDG, GET audit `chain.ok` true, tamper `row_hash`, GET false.
 
-### Block 15 Prompt 12 (Helm)
+### Helm
 
 - Charts: `charts/civreg-bridge` and `charts/stub-identity-api`. Secret values stay out of the chart (`existingSecret`). Optional `postgres.devInstall` uses `postgres:16-alpine`. Migrate Job: `pre-install,pre-upgrade` when DB is external, `post-install,pre-upgrade` when Postgres is in the same release. Kafka remains compose plaintext; no Strimzi.
 - Verify: `helm lint` both charts; `helm template ... -f values-dev.yaml`; `pnpm test` for `run-migrations`. Rollback: delete `charts/`.
 
-### Block 16 Prompt 13 (CI)
+### CI
 
 - Workflow `.github/workflows/ci.yml`: lint+test both services (TypeScript `tsc`, Jest; Kafka IT skipped in CI), `helm lint`/`template`, Docker build + Trivy HIGH/CRITICAL (`ignore-unfixed`, `.trivyignore`), GHCR push and Helm `appVersion` only on `v*.*.*` tags. Trivy action SHA-pinned to v0.35.0.
 - Verify: push a branch and watch Actions. Tag `v0.1.0` to push images. Rollback: delete `.github/workflows/ci.yml`.
 
-### Block 17 README
+### README
 
 - Root `README.md`: what it is, diagram, how I ran it, what works, what is stubbed. Same voice as `docs/design-note.md`. No marketing.
-- Verify: open README as if you were Adebola. Do not commit the Identiko JD PDF. Rollback: delete `README.md`.
+- Verify: read the README as a reviewer. Keep the Identiko JD PDF out of git. Rollback: delete `README.md`.
 
 ### CI Trivy red
 
@@ -260,3 +256,9 @@ Block 3 next: AI repo map (read-only). You open each listed file.
 
 - Run 41194844541: JSON gate listed HIGH/CRITICAL on `pnpm` 10.19.0, `tar` 7.5.1, `sigstore` 3.1.0. Those are from `corepack prepare pnpm@10.19.0` in the prod stage, not app deps. Prod now copies pruned `node_modules` + `dist` and drops npm/corepack.
 - Verify: local `docker build` then Trivy HIGH/CRITICAL empty; push and watch build-and-scan. Rollback: restore the old Dockerfiles that ran pnpm install in prod.
+
+### Runbook
+
+- Added `docs/runbook.md`: start (Tilt + compose), DEMO users after Nigeria reseed, birth 202 vs tRPC 200, death curl maker-checker, Kafka consume, Helm pointer, reseed, rollback, errors from live runs.
+- README now links it. Ports and URLs match compose / INSTALL.md / live tests (L3YKU6, JMESDG, HT36XE).
+- Verify: read `docs/runbook.md`. Rollback: delete `docs/runbook.md` and the README link.

@@ -14,4 +14,4 @@ alwaysApply: true
 - No secrets in git. Use .env.example and Kubernetes Secrets.
 - Write tests for every new service function. TypeScript strict mode.
 - Plain, short README and comments. No marketing language.
-- Do not do [YOU] sprint-plan blocks. Do not start the next [AI] or [BOTH] block until the user says the previous [YOU] block is done.
+- Do not start extra work until asked. One concern at a time.

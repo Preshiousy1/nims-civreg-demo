@@ -41,11 +41,10 @@ The trigger token is not used for accept or reject. Human tokens are refused. Sc
 
 Logs use `eventId` and `actionId` only. No names, no NIN, no declaration fields.
 
-## Could not verify
+## Live checks
 
-- A live birth sitting pending then completing in the UI (run that yourself).
-- Whether `host.docker.internal:3042` from the countryconfig pod actually reaches compose on this machine.
-- Whether events calls `GET /trigger/system/ready` again without a restart after `INTEGRATIONS` is filled. If Integrations does not list `civreg-bridge`, restart the events pod.
-- Informant email/SMS after async accept. The template still sends that mail on the 200 path only.
-- Exact Core error if someone assigns themselves while confirmation is pending (`CONFLICT: User is assigned to this event` in the docs).
-- Death maker-checker (different user, reversal). Death is auto-resolved in this slice.
+- Birth pending then complete: countryconfig `202`, then system-client accept. Tracking id L3YKU6 was the first reject (accept payload had extra review fields); later births completed.
+- `host.docker.internal:3042` from the countryconfig pod reaches compose on this Mac.
+- If Integrations does not list `civreg-bridge`, restart the events pod so `/trigger/system/ready` runs again.
+- Informant email/SMS after async accept still follows the template’s 200 path; not re-checked after 202.
+- Death REGISTER stays pending until a checker JWT approves (`PENDING_APPROVAL`). Reverse is identity-side only.

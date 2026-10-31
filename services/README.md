@@ -1,4 +1,4 @@
-# Services (Prompt 8 skeleton)
+# Services
 
 Two NestJS 11.2.8 apps (Nest 12 is ESM; Jest 29 cannot load `import.meta`). Node 22. TypeScript strict.
 

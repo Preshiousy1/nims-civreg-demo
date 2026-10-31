@@ -4,7 +4,7 @@ Nigeria CRS on **OpenCRVS 2.1.2**. Country config is scaffolded from the officia
 
 Identity here is a **stub**, not MOSIP. Kafka is local compose KRaft, plaintext. Strimzi mTLS, Keycloak, Vault, APISIX and ArgoCD are not in this repo.
 
-More detail: `docs/design-note.md`. What I actually ran and broke: `LEARNING_LOG.md`.
+More detail: `docs/design-note.md`. What I actually ran and broke: `LEARNING_LOG.md`. Install, reseed, rollback, errors: `docs/runbook.md`.
 
 ## Picture
 

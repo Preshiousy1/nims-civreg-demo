@@ -1,6 +1,6 @@
 # Event envelope (v1)
 
-CloudEvents-style fields. Topic names end with `.v1`. Compose Kafka (Block 13 Step A) creates the topics. After a birth NIN is issued, civreg-bridge publishes `civreg.birth.registered.v1` to `civreg.registry.events.v1`, then accepts the OpenCRVS action.
+CloudEvents-style fields. Topic names end with `.v1`. Compose Kafka creates the topics. After a birth NIN is issued, civreg-bridge publishes `civreg.birth.registered.v1` to `civreg.registry.events.v1`, then accepts the OpenCRVS action.
 
 ## Envelope
 
@@ -23,7 +23,7 @@ CloudEvents-style fields. Topic names end with `.v1`. Compose Kafka (Block 13 St
 
 `.v1` on the topic is the wire contract. A breaking change gets a new topic, not a silent field add.
 
-## `data` for `civreg.birth.registered.v1` (planned)
+## `data` for `civreg.birth.registered.v1`
 
 ```json
 {
