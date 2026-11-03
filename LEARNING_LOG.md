@@ -271,3 +271,9 @@ Optional only: Elasticsearch 9200, MinIO 3536. Not required to keep going.
 - Migration: `1700000000004-Section2Hardening`.
 - Verify: `cd services/civreg-bridge && pnpm test:ci` (44 passed). Live 503 experiment still for YOU (stop bridge, register once, note what Core shows).
 - Rollback: revert migration + intercept/deceased/outbox/auth changes; drop new columns.
+
+### CI typecheck on Section 2 push
+
+- `lint-and-test (civreg-bridge)` failed: `tsc` TS2322 on `intercept.service.ts` lines 128–129. `ninRequestId` / `nin` are `let` narrowed after a guard, but nested `transaction` callbacks still see `string | undefined`.
+- Fix: copy into `const birthNinRequestId` / `birthNin` after the guard and pass those into outbox enqueue.
+- Verify: `pnpm lint` and `pnpm test:ci` in `services/civreg-bridge`. Rollback: revert that const-copy change.

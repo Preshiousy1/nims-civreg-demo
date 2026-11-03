@@ -98,6 +98,10 @@ export class InterceptService {
         throw new Error('birth resolve missing NIN')
       }
 
+      // Const copies so nested callbacks keep string (not string | undefined).
+      const birthNinRequestId = ninRequestId
+      const birthNin = nin
+
       const registrationNumber =
         row.registrationNumber ?? generateRegistrationNumber()
       const acceptTransactionId =
@@ -105,8 +109,8 @@ export class InterceptService {
         deterministicTransactionId(row.eventId, row.actionId, 'accept')
 
       const prepared = await this.requests.saveBirthArtifacts(row.id, {
-        ninRequestId,
-        issuedNin: nin,
+        ninRequestId: birthNinRequestId,
+        issuedNin: birthNin,
         registrationNumber,
         acceptTransactionId
       })
@@ -125,8 +129,8 @@ export class InterceptService {
         await this.outbox.enqueueBirthRegistered(manager, {
           eventId: prepared.eventId,
           actionId: prepared.actionId,
-          ninRequestId,
-          nin
+          ninRequestId: birthNinRequestId,
+          nin: birthNin
         })
       })
       await this.dataSource.transaction((manager) => this.outbox.drain(manager))
