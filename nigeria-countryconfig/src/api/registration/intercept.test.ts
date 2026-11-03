@@ -32,6 +32,7 @@ describe('birth and death REGISTER interception', () => {
 
   beforeEach(async () => {
     process.env.CIVREG_BRIDGE_URL = 'http://civreg-bridge.test'
+    process.env.CIVREG_BRIDGE_INTERCEPT_SECRET = 'demo-intercept-shared-secret'
     ;(fetch as unknown as ReturnType<typeof vi.fn>).mockImplementation(
       async (url: string) => {
         if (String(url).includes('/intercept/register')) {
@@ -75,6 +76,11 @@ describe('birth and death REGISTER interception', () => {
     const [url, init] = interceptCall
     expect(url).toBe('http://civreg-bridge.test/intercept/register')
     expect(init.method).toBe('POST')
+    expect(
+      (init as { headers?: Record<string, string> }).headers?.[
+        'x-civreg-intercept-secret'
+      ]
+    ).toBe('demo-intercept-shared-secret')
     const body = JSON.parse(init.body) as {
       eventId: string
       actionId: string

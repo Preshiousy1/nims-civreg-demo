@@ -1,7 +1,11 @@
 import { Injectable, Logger } from '@nestjs/common'
+import { DataSource } from 'typeorm'
+import { DeceasedService } from '../deceased/deceased.service'
 import { loadEnv } from '../env'
-import { acceptRegister, rejectRegister } from '../opencrvs/events-client'
+import { generateRegistrationNumber, acceptRegister, rejectRegister } from '../opencrvs/events-client'
+import { deterministicTransactionId } from '../opencrvs/ids'
 import { fetchSystemToken } from '../opencrvs/token'
+import { OutboxService } from '../outbox/outbox.service'
 import { CreateRequestDto } from '../requests/dto'
 import { RequestsService } from '../requests/requests.service'
 import {
@@ -10,8 +14,6 @@ import {
   requestNin,
   withRetries
 } from '../stub/stub-client'
-import { DeceasedService } from '../deceased/deceased.service'
-import { getSharedProducer, publishBirthRegistered } from '../kafka/producer'
 
 @Injectable()
 export class InterceptService {
@@ -19,7 +21,9 @@ export class InterceptService {
 
   constructor(
     private readonly requests: RequestsService,
-    private readonly deceased: DeceasedService
+    private readonly deceased: DeceasedService,
+    private readonly outbox: OutboxService,
+    private readonly dataSource: DataSource
   ) {}
 
   async intercept(dto: CreateRequestDto) {
@@ -58,13 +62,16 @@ export class InterceptService {
 
     const env = loadEnv()
     try {
-      let ninRequestId: string | undefined
-      let nin: string | undefined
+      let ninRequestId = row.ninRequestId ?? undefined
+      let nin = row.issuedNin ?? undefined
       await withRetries(
         env.stubRetryAttempts,
         env.stubRetryDelayMs,
         async () => {
           if (row.kind === 'birth_nin') {
+            if (ninRequestId && nin) {
+              return
+            }
             const created = await requestNin(
               env.stubIdentityUrl,
               row.eventId,
@@ -77,35 +84,53 @@ export class InterceptService {
             ninRequestId = issued.requestId
             nin = issued.nin
           } else {
-            await postDeceasedStatus(env.stubIdentityUrl, row.eventId)
+            await postDeceasedStatus(
+              env.stubIdentityUrl,
+              row.eventId,
+              '00000000000',
+              row.id
+            )
           }
         }
       )
 
-      if (row.kind === 'birth_nin' && ninRequestId && nin) {
-        const producer = await getSharedProducer((message) =>
-          this.log.log(message)
-        )
-        if (producer) {
-          await publishBirthRegistered(
-            {
-              eventId: row.eventId,
-              actionId: row.actionId,
-              ninRequestId,
-              nin
-            },
-            producer
-          )
-        }
+      if (row.kind !== 'birth_nin' || !ninRequestId || !nin) {
+        throw new Error('birth resolve missing NIN')
       }
+
+      const registrationNumber =
+        row.registrationNumber ?? generateRegistrationNumber()
+      const acceptTransactionId =
+        row.acceptTransactionId ??
+        deterministicTransactionId(row.eventId, row.actionId, 'accept')
+
+      const prepared = await this.requests.saveBirthArtifacts(row.id, {
+        ninRequestId,
+        issuedNin: nin,
+        registrationNumber,
+        acceptTransactionId
+      })
 
       const token = await this.systemToken(env)
       await acceptRegister({
         eventsUrl: env.openCrvsEventsUrl,
         token,
-        eventId: row.eventId,
-        actionId: row.actionId
+        eventId: prepared.eventId,
+        actionId: prepared.actionId,
+        transactionId: acceptTransactionId,
+        registrationNumber
       })
+
+      await this.dataSource.transaction(async (manager) => {
+        await this.outbox.enqueueBirthRegistered(manager, {
+          eventId: prepared.eventId,
+          actionId: prepared.actionId,
+          ninRequestId,
+          nin
+        })
+      })
+      await this.dataSource.transaction((manager) => this.outbox.drain(manager))
+
       await this.requests.markStatus(row.id, 'accepted')
       this.log.log(
         `outcome=accepted eventId=${row.eventId} actionId=${row.actionId}`

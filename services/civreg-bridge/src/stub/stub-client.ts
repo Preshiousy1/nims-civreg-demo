@@ -38,12 +38,21 @@ export async function getNin(
 export async function postDeceasedStatus(
   stubBaseUrl: string,
   eventId: string,
-  nin = '00000000000'
+  nin: string,
+  idempotencyKey: string
 ): Promise<void> {
+  if (!nin) {
+    throw new Error('deceased NIN is required')
+  }
   const res = await fetch(`${stubBaseUrl}/deceased-status-events`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ nin, eventId, reason: 'demo' })
+    body: JSON.stringify({
+      nin,
+      eventId,
+      reason: 'demo',
+      idempotencyKey
+    })
   })
   if (!res.ok) {
     throw new Error(`stub deceased-status failed: ${res.status}`)

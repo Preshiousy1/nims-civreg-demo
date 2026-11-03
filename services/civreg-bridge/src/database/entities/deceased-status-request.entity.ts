@@ -29,11 +29,21 @@ export class DeceasedStatusRequestEntity {
   @Column({ name: 'maker_id', type: 'varchar', length: 100 })
   makerId!: string
 
+  /** Stable staff id when known. Compared with the checker's staffId claim. */
+  @Column({ name: 'maker_staff_id', type: 'varchar', length: 100, nullable: true })
+  makerStaffId!: string | null
+
   @Column({ type: 'varchar', length: 32 })
   status!: DeceasedStatus
 
-  @Column({ type: 'varchar', length: 16, default: '00000000000' })
+  @Column({ type: 'varchar', length: 16 })
   nin!: string
+
+  @Column({ name: 'stub_done', type: 'boolean', default: false })
+  stubDone!: boolean
+
+  @Column({ name: 'core_done', type: 'boolean', default: false })
+  coreDone!: boolean
 
   @Column({ type: 'text', nullable: true })
   reason!: string | null

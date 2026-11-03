@@ -9,6 +9,7 @@ import { RequestEntity } from './database/entities/request.entity'
 import { InitRequestsAndAuditLog1700000000001 } from './database/migrations/1700000000001-InitRequestsAndAuditLog'
 import { AddRequestStatus1700000000002 } from './database/migrations/1700000000002-AddRequestStatus'
 import { DeceasedAndOutbox1700000000003 } from './database/migrations/1700000000003-DeceasedAndOutbox'
+import { Section2Hardening1700000000004 } from './database/migrations/1700000000004-Section2Hardening'
 import { DeceasedModule } from './deceased/deceased.module'
 import { InterceptModule } from './intercept/intercept.module'
 import { loadEnv } from './env'
@@ -31,7 +32,8 @@ import { RequestsModule } from './requests/requests.module'
           migrations: [
             InitRequestsAndAuditLog1700000000001,
             AddRequestStatus1700000000002,
-            DeceasedAndOutbox1700000000003
+            DeceasedAndOutbox1700000000003,
+            Section2Hardening1700000000004
           ],
           synchronize: false,
           migrationsRun: env.runMigrations,

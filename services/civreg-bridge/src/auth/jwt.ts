@@ -3,6 +3,8 @@ import jwt, { type JwtPayload } from 'jsonwebtoken'
 export type DevJwtUser = {
   sub: string
   role: string
+  /** Optional stable staff id. Prefer this over sub when comparing maker vs checker. */
+  staffId?: string
 }
 
 export const CHECKER_ROLES = new Set(['nimc_civreg_checker', 'checker'])
@@ -19,9 +21,17 @@ export function mintDevJwt(
   if (!secret) {
     throw new Error('JWT_SECRET is not set')
   }
-  return jwt.sign({ sub: user.sub, role: user.role }, secret, {
-    expiresIn: expiresInSeconds
-  })
+  return jwt.sign(
+    {
+      sub: user.sub,
+      role: user.role,
+      ...(user.staffId ? { staffId: user.staffId } : {})
+    },
+    secret,
+    {
+      expiresIn: expiresInSeconds
+    }
+  )
 }
 
 export function verifyDevJwt(token: string, secret: string): DevJwtUser {
@@ -31,8 +41,10 @@ export function verifyDevJwt(token: string, secret: string): DevJwtUser {
   const payload = jwt.verify(token, secret) as JwtPayload
   const sub = typeof payload.sub === 'string' ? payload.sub : ''
   const role = typeof payload.role === 'string' ? payload.role : ''
+  const staffId =
+    typeof payload.staffId === 'string' ? payload.staffId : undefined
   if (!sub || !role) {
     throw new Error('JWT must carry sub and role')
   }
-  return { sub, role }
+  return staffId ? { sub, role, staffId } : { sub, role }
 }

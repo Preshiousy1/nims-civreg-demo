@@ -26,9 +26,12 @@ kubectl -n civreg create secret generic civreg-bridge \
   --from-literal=DATABASE_URL='postgres://civreg:civreg@civreg-bridge-postgres:5432/civreg' \
   --from-literal=postgres-password='civreg' \
   --from-literal=JWT_SECRET='demo-civreg-jwt-not-a-real-secret' \
+  --from-literal=INTERCEPT_SHARED_SECRET='demo-intercept-shared-secret' \
   --from-literal=OPENCRVS_CLIENT_ID='a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d' \
   --from-literal=OPENCRVS_CLIENT_SECRET='demo-civreg-bridge-not-a-real-secret'
 ```
+
+`INTERCEPT_SHARED_SECRET` must match countryconfig `CIVREG_BRIDGE_INTERCEPT_SECRET` (header `x-civreg-intercept-secret`).
 
 `DATABASE_URL` host `civreg-bridge-postgres` matches the bundled StatefulSet when the release name is `civreg-bridge`. Change it if you use an external database (`postgres.devInstall: false`).
 

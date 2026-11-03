@@ -9,8 +9,22 @@ import type {
   DeceasedStatusRequestEntity
 } from '../database/entities/deceased-status-request.entity'
 
+/**
+ * Prefer staffId when both sides have it (Keycloak/OpenCRVS map to one id).
+ * Fall back to sub === makerId for the demo JWT.
+ */
+export function isSamePerson(
+  row: Pick<DeceasedStatusRequestEntity, 'makerId' | 'makerStaffId'>,
+  user: DevJwtUser
+): boolean {
+  if (row.makerStaffId && user.staffId) {
+    return row.makerStaffId === user.staffId
+  }
+  return user.sub === row.makerId
+}
+
 export function assertCanApprove(
-  row: Pick<DeceasedStatusRequestEntity, 'status' | 'makerId'>,
+  row: Pick<DeceasedStatusRequestEntity, 'status' | 'makerId' | 'makerStaffId'>,
   user: DevJwtUser
 ): void {
   if (row.status === 'APPROVED') {
@@ -22,13 +36,13 @@ export function assertCanApprove(
   if (!isCheckerRole(user.role)) {
     throw new ForbiddenException('checker role required')
   }
-  if (user.sub === row.makerId) {
+  if (isSamePerson(row, user)) {
     throw new ForbiddenException('maker cannot approve their own request')
   }
 }
 
 export function assertCanReject(
-  row: Pick<DeceasedStatusRequestEntity, 'status' | 'makerId'>,
+  row: Pick<DeceasedStatusRequestEntity, 'status' | 'makerId' | 'makerStaffId'>,
   user: DevJwtUser
 ): void {
   if (row.status === 'REJECTED') {
@@ -40,7 +54,7 @@ export function assertCanReject(
   if (!isCheckerRole(user.role)) {
     throw new ForbiddenException('checker role required')
   }
-  if (user.sub === row.makerId) {
+  if (isSamePerson(row, user)) {
     throw new ForbiddenException('maker cannot reject their own request')
   }
 }

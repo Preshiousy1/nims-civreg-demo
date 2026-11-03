@@ -11,6 +11,10 @@ describe('RequestsService idempotency', () => {
     kind: 'birth_nin',
     payload: {},
     status: 'pending',
+    registrationNumber: null,
+    acceptTransactionId: null,
+    ninRequestId: null,
+    issuedNin: null,
     createdAt: new Date('2026-10-30T21:00:00.000Z'),
     updatedAt: new Date('2026-10-30T21:00:00.000Z')
   }

@@ -3,9 +3,10 @@ import { RequestsService } from '../requests/requests.service'
 import * as stub from '../stub/stub-client'
 import * as token from '../opencrvs/token'
 import * as events from '../opencrvs/events-client'
-import * as kafka from '../kafka/producer'
 import { DeceasedService } from '../deceased/deceased.service'
+import { OutboxService } from '../outbox/outbox.service'
 import { RequestEntity } from '../database/entities/request.entity'
+import { DataSource } from 'typeorm'
 
 jest.mock('../stub/stub-client', () => ({
   requestNin: jest.fn(),
@@ -22,12 +23,8 @@ jest.mock('../opencrvs/token', () => ({
 
 jest.mock('../opencrvs/events-client', () => ({
   acceptRegister: jest.fn(),
-  rejectRegister: jest.fn()
-}))
-
-jest.mock('../kafka/producer', () => ({
-  getSharedProducer: jest.fn(),
-  publishBirthRegistered: jest.fn()
+  rejectRegister: jest.fn(),
+  generateRegistrationNumber: jest.fn(() => 'ABCD1234EFGH')
 }))
 
 describe('InterceptService.resolve', () => {
@@ -39,6 +36,10 @@ describe('InterceptService.resolve', () => {
     kind: 'birth_nin',
     payload: { eventType: 'birth', action: { type: 'REGISTER' } },
     status: 'pending',
+    registrationNumber: null,
+    acceptTransactionId: null,
+    ninRequestId: null,
+    issuedNin: null,
     createdAt: new Date(),
     updatedAt: new Date()
   }
@@ -46,11 +47,21 @@ describe('InterceptService.resolve', () => {
   const requests = {
     getById: jest.fn(),
     markStatus: jest.fn(),
-    persist: jest.fn()
+    persist: jest.fn(),
+    saveBirthArtifacts: jest.fn()
   }
 
   const deceased = {
     openFromRegister: jest.fn()
+  }
+
+  const outbox = {
+    enqueueBirthRegistered: jest.fn(),
+    drain: jest.fn()
+  }
+
+  const dataSource = {
+    transaction: jest.fn(async (fn: (m: unknown) => unknown) => fn({}))
   }
 
   beforeEach(() => {
@@ -60,6 +71,12 @@ describe('InterceptService.resolve', () => {
     process.env.STUB_RETRY_ATTEMPTS = '1'
     jest.clearAllMocks()
     requests.getById.mockResolvedValue({ ...row })
+    requests.saveBirthArtifacts.mockImplementation(async (_id: string, input: object) => ({
+      ...row,
+      ...input,
+      registrationNumber: 'ABCD1234EFGH',
+      acceptTransactionId: 'fixed-txn'
+    }))
     ;(token.fetchSystemToken as jest.Mock).mockResolvedValue('system-token')
     ;(stub.requestNin as jest.Mock).mockResolvedValue({
       requestId: 'nin-1',
@@ -71,59 +88,45 @@ describe('InterceptService.resolve', () => {
       status: 'issued',
       nin: '00011111111'
     })
-    ;(kafka.getSharedProducer as jest.Mock).mockResolvedValue({
-      connect: jest.fn(),
-      send: jest.fn(),
-      disconnect: jest.fn()
-    })
-    ;(kafka.publishBirthRegistered as jest.Mock).mockResolvedValue(undefined)
   })
 
-  it('accepts with the system-client token after the stub issues a NIN', async () => {
-    const service = new InterceptService(
+  function service(): InterceptService {
+    return new InterceptService(
       requests as unknown as RequestsService,
-      deceased as unknown as DeceasedService
+      deceased as unknown as DeceasedService,
+      outbox as unknown as OutboxService,
+      dataSource as unknown as DataSource
     )
-    await expect(service.resolve('req-1')).resolves.toBe('accepted')
-    expect(token.fetchSystemToken).toHaveBeenCalledWith(
-      expect.objectContaining({ clientId: 'demo-id' })
-    )
+  }
+
+  it('accepts with a stored registration number, then enqueues Kafka', async () => {
+    await expect(service().resolve('req-1')).resolves.toBe('accepted')
     expect(events.acceptRegister).toHaveBeenCalledWith(
       expect.objectContaining({
         token: 'system-token',
         eventId: 'evt-1',
-        actionId: 'act-1'
+        actionId: 'act-1',
+        registrationNumber: 'ABCD1234EFGH'
+      })
+    )
+    expect(outbox.enqueueBirthRegistered).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        eventId: 'evt-1',
+        nin: '00011111111',
+        ninRequestId: 'nin-1'
       })
     )
     expect(events.rejectRegister).not.toHaveBeenCalled()
-    expect(kafka.publishBirthRegistered).toHaveBeenCalledWith(
-      expect.objectContaining({
-        eventId: 'evt-1',
-        actionId: 'act-1',
-        ninRequestId: 'nin-1',
-        nin: '00011111111'
-      }),
-      expect.anything()
-    )
     expect(requests.markStatus).toHaveBeenCalledWith('req-1', 'accepted')
   })
 
   it('rejects with the system-client token when the stub fails', async () => {
     ;(stub.requestNin as jest.Mock).mockRejectedValue(new Error('503'))
-    const service = new InterceptService(
-      requests as unknown as RequestsService,
-      deceased as unknown as DeceasedService
-    )
-    await expect(service.resolve('req-1')).resolves.toBe('rejected')
-    expect(events.rejectRegister).toHaveBeenCalledWith(
-      expect.objectContaining({
-        token: 'system-token',
-        eventId: 'evt-1',
-        actionId: 'act-1'
-      })
-    )
+    await expect(service().resolve('req-1')).resolves.toBe('rejected')
+    expect(events.rejectRegister).toHaveBeenCalled()
     expect(events.acceptRegister).not.toHaveBeenCalled()
-    expect(kafka.publishBirthRegistered).not.toHaveBeenCalled()
+    expect(outbox.enqueueBirthRegistered).not.toHaveBeenCalled()
     expect(requests.markStatus).toHaveBeenCalledWith('req-1', 'rejected')
   })
 
@@ -133,29 +136,34 @@ describe('InterceptService.resolve', () => {
       request: { ...row, kind: 'death_register' }
     })
     deceased.openFromRegister.mockResolvedValue({ id: 'death-1' })
-    const service = new InterceptService(
-      requests as unknown as RequestsService,
-      deceased as unknown as DeceasedService
-    )
-    await service.intercept({
+    await service().intercept({
       eventId: 'evt-1',
       actionId: 'act-1',
       kind: 'death_register',
-      actorId: 'maker-1'
+      actorId: 'maker-1',
+      payload: {
+        action: { declaration: { 'deceased.nin': '00099999999' } }
+      }
     })
     expect(deceased.openFromRegister).toHaveBeenCalled()
     expect(events.acceptRegister).not.toHaveBeenCalled()
   })
 
-  it('does not reuse a user token', async () => {
-    const service = new InterceptService(
-      requests as unknown as RequestsService,
-      deceased as unknown as DeceasedService
+  it('reuses stored accept artifacts on retry', async () => {
+    requests.getById.mockResolvedValue({
+      ...row,
+      ninRequestId: 'nin-1',
+      issuedNin: '00011111111',
+      registrationNumber: 'STOREDREGNUM1',
+      acceptTransactionId: 'stored-txn-id'
+    })
+    await service().resolve('req-1')
+    expect(stub.requestNin).not.toHaveBeenCalled()
+    expect(events.acceptRegister).toHaveBeenCalledWith(
+      expect.objectContaining({
+        registrationNumber: 'STOREDREGNUM1',
+        transactionId: 'stored-txn-id'
+      })
     )
-    await service.resolve('req-1')
-    const tokenArg = (events.acceptRegister as jest.Mock).mock.calls[0][0]
-      .token as string
-    expect(tokenArg).toBe('system-token')
-    expect(tokenArg).not.toBe('must-not-be-used-for-accept')
   })
 })

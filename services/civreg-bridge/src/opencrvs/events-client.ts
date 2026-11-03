@@ -1,5 +1,6 @@
 import { createClient } from '@opencrvs/toolkit/api'
-import { randomBytes, randomUUID } from 'crypto'
+import { randomBytes } from 'crypto'
+import { deterministicTransactionId } from './ids'
 
 const REG_ALPHABET = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -43,14 +44,16 @@ export async function acceptRegister(input: {
   token: string
   eventId: string
   actionId: string
+  transactionId: string
+  registrationNumber: string
 }): Promise<void> {
   const client = createClient(input.eventsUrl, `Bearer ${input.token}`)
   await client.event.actions.register.accept.mutate(
     toRegisterAcceptPayload({
       eventId: input.eventId,
       actionId: input.actionId,
-      transactionId: randomUUID(),
-      registrationNumber: generateRegistrationNumber()
+      transactionId: input.transactionId,
+      registrationNumber: input.registrationNumber
     })
   )
 }
@@ -63,7 +66,11 @@ export async function rejectRegister(input: {
 }): Promise<void> {
   const client = createClient(input.eventsUrl, `Bearer ${input.token}`)
   await client.event.actions.register.reject.mutate({
-    transactionId: randomUUID(),
+    transactionId: deterministicTransactionId(
+      input.eventId,
+      input.actionId,
+      'reject'
+    ),
     eventId: input.eventId,
     actionId: input.actionId
   })

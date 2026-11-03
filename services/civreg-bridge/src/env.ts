@@ -11,6 +11,8 @@ export type BridgeEnv = {
   openCrvsClientSecret: string
   kafkaBrokers: string[]
   jwtSecret: string
+  interceptSharedSecret: string
+  reconcileOlderThanMs: number
 }
 
 function bool(value: string | undefined, fallback: boolean): boolean {
@@ -47,6 +49,8 @@ export function loadEnv(): BridgeEnv {
       .split(',')
       .map((broker) => broker.trim())
       .filter((broker) => broker.length > 0),
-    jwtSecret: process.env.JWT_SECRET ?? ''
+    jwtSecret: process.env.JWT_SECRET ?? '',
+    interceptSharedSecret: process.env.INTERCEPT_SHARED_SECRET ?? '',
+    reconcileOlderThanMs: Number(process.env.RECONCILE_OLDER_THAN_MS ?? 30_000)
   }
 }

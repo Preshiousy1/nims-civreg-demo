@@ -44,6 +44,8 @@ services:
       OPENCRVS_CLIENT_SECRET: demo-civreg-bridge-not-a-real-secret
       KAFKA_BROKERS: broker:19092
       JWT_SECRET: demo-civreg-jwt-not-a-real-secret
+      INTERCEPT_SHARED_SECRET: demo-intercept-shared-secret
+      RECONCILE_OLDER_THAN_MS: '30000'
     depends_on:
       postgres:
         condition: service_healthy

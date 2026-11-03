@@ -6,7 +6,7 @@ Running record of the v2.1.2 laptop demo. What I ran, what broke, how I checked 
 
 ### UI walk (30 Oct)
 
-- Scaffolded `nigeria-countryconfig` with `npm create @opencrvs/countryconfig`, ISO `NGA`, org `identiko-demo`. Said no to extra telemetry in spirit; env still has `COUNTRY_CODE=NGA`.
+- Scaffolded `nigeria-countryconfig` with `npm create @opencrvs/countryconfig`, ISO `NGA`, org `identiko-demo`. Answered **y** to telemetry during scaffold (`TELEMETRY_ENABLED` defaults to true). For a government identity system I would review `ANALYTICS.md` and likely turn it off on air-gapped on-prem.
 - `tilt up` in `nigeria-countryconfig`. Tilt UI 22/22 green. Core image tag and toolkit are v2.1.2 (template default, not a later bump).
 - Triggered `data-seed` once. Job `data-seed-9xj62` succeeded (exit 0, ~35s). Validated 54 users, 10 roles, 84 administrative areas, 95 locations.
 - Logged in as `k.mweene` (Kennedy Mweene, LOCAL_REGISTRAR, Ibombo District Office). Then as `k.bwalya` (Kalusha Bwalya, HOSPITAL_CLERK / Hospital Official, Ibombo District Hospital). Password `test`, 2FA `000000`.
@@ -262,3 +262,12 @@ Optional only: Elasticsearch 9200, MinIO 3536. Not required to keep going.
 - Added `docs/runbook.md`: start (Tilt + compose), DEMO users after Nigeria reseed, birth 202 vs tRPC 200, death curl maker-checker, Kafka consume, Helm pointer, reseed, rollback, errors from live runs.
 - README now links it. Ports and URLs match compose / INSTALL.md / live tests (L3YKU6, JMESDG, HT36XE).
 - Verify: read `docs/runbook.md`. Rollback: delete `docs/runbook.md` and the README link.
+
+### Section 2 hardening (Round 2 prep)
+
+- Birth: reconciler for stuck `pending` rows; intercept shared secret; deterministic accept `transactionId` + stored registration number; Kafka birth event after Core accept via outbox; `FOR UPDATE SKIP LOCKED` on drain; declaration PII stripped before save.
+- Death: no default NIN; `stub_done` / `core_done` saga with compensating reverse; optional JWT `staffId` / `maker_staff_id`.
+- Docs: known limits in `docs/design-note.md`; plain list in `docs/section-2-updates.md`; telemetry line corrected (answered y at scaffold).
+- Migration: `1700000000004-Section2Hardening`.
+- Verify: `cd services/civreg-bridge && pnpm test:ci` (44 passed). Live 503 experiment still for YOU (stop bridge, register once, note what Core shows).
+- Rollback: revert migration + intercept/deceased/outbox/auth changes; drop new columns.

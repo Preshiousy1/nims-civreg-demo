@@ -1,14 +1,28 @@
-import { Injectable, NotFoundException } from '@nestjs/common'
+import {
+  BadRequestException,
+  Injectable,
+  Logger,
+  NotFoundException
+} from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { DataSource, Repository } from 'typeorm'
 import { AuditService } from '../audit/audit.service'
-import { canonicalPayload, verifyChain, type AuditChainRow } from '../audit/audit-chain'
+import {
+  canonicalPayload,
+  verifyChain,
+  type AuditChainRow
+} from '../audit/audit-chain'
 import type { DevJwtUser } from '../auth/jwt'
 import { AuditLogEntity } from '../database/entities/audit-log.entity'
 import { DeceasedStatusRequestEntity } from '../database/entities/deceased-status-request.entity'
 import { RequestEntity } from '../database/entities/request.entity'
 import { loadEnv } from '../env'
-import { acceptRegister, rejectRegister } from '../opencrvs/events-client'
+import {
+  acceptRegister,
+  generateRegistrationNumber,
+  rejectRegister
+} from '../opencrvs/events-client'
+import { deterministicTransactionId } from '../opencrvs/ids'
 import { fetchSystemToken } from '../opencrvs/token'
 import { OutboxService } from '../outbox/outbox.service'
 import {
@@ -18,22 +32,32 @@ import {
 } from '../stub/stub-client'
 import { assertCanApprove, assertCanReject, assertCanReverse } from './rules'
 
-const DEMO_NIN = '00000000000'
 const ENTITY = 'deceased_status_request'
 
-function demoNinFromPayload(payload: Record<string, unknown>): string {
+function ninFromPayload(payload: Record<string, unknown>): string | null {
   const action = payload.action as
     | { declaration?: Record<string, unknown> }
     | undefined
   const nin = action?.declaration?.['deceased.nin']
-  if (typeof nin === 'string' && nin.length > 0) {
-    return nin
+  if (typeof nin === 'string' && nin.trim().length > 0) {
+    return nin.trim()
   }
-  return DEMO_NIN
+  return null
+}
+
+function makerStaffIdFromPayload(
+  payload: Record<string, unknown>
+): string | null {
+  if (typeof payload.makerStaffId === 'string' && payload.makerStaffId) {
+    return payload.makerStaffId
+  }
+  return null
 }
 
 @Injectable()
 export class DeceasedService {
+  private readonly log = new Logger(DeceasedService.name)
+
   constructor(
     @InjectRepository(DeceasedStatusRequestEntity)
     private readonly rows: Repository<DeceasedStatusRequestEntity>,
@@ -53,6 +77,12 @@ export class DeceasedService {
     if (existing) {
       return existing
     }
+    const nin = ninFromPayload(input.payload)
+    if (!nin) {
+      throw new BadRequestException(
+        'deceased.nin is required before death REGISTER can be held for approval'
+      )
+    }
     return this.dataSource.transaction(async (manager) => {
       const raced = await manager.findOne(DeceasedStatusRequestEntity, {
         where: { requestId: input.request.id }
@@ -65,8 +95,11 @@ export class DeceasedService {
         eventId: input.request.eventId,
         actionId: input.request.actionId,
         makerId: input.makerId,
+        makerStaffId: makerStaffIdFromPayload(input.payload),
         status: 'PENDING_APPROVAL',
-        nin: demoNinFromPayload(input.payload),
+        nin,
+        stubDone: false,
+        coreDone: false,
         reason: null
       })
       const saved = await manager.save(row)
@@ -99,16 +132,59 @@ export class DeceasedService {
     }
     assertCanApprove(row, user)
     const env = loadEnv()
-    await withRetries(env.stubRetryAttempts, env.stubRetryDelayMs, () =>
-      postDeceasedStatus(env.stubIdentityUrl, row.eventId, row.nin)
-    )
-    const token = await this.systemToken(env)
-    await acceptRegister({
-      eventsUrl: env.openCrvsEventsUrl,
-      token,
-      eventId: row.eventId,
-      actionId: row.actionId
-    })
+
+    if (!row.stubDone) {
+      await withRetries(env.stubRetryAttempts, env.stubRetryDelayMs, () =>
+        postDeceasedStatus(env.stubIdentityUrl, row.eventId, row.nin, row.id)
+      )
+      await this.rows.update({ id: row.id }, { stubDone: true })
+      row.stubDone = true
+    }
+
+    if (!row.coreDone) {
+      try {
+        const token = await this.systemToken(env)
+        const transactionId = deterministicTransactionId(
+          row.eventId,
+          row.actionId,
+          'accept'
+        )
+        const registrationNumber = generateRegistrationNumber()
+        await acceptRegister({
+          eventsUrl: env.openCrvsEventsUrl,
+          token,
+          eventId: row.eventId,
+          actionId: row.actionId,
+          transactionId,
+          registrationNumber
+        })
+        await this.rows.update({ id: row.id }, { coreDone: true })
+        row.coreDone = true
+      } catch (err: unknown) {
+        this.log.warn(
+          `core accept failed after stub; compensating reverse eventId=${row.eventId}`
+        )
+        try {
+          await withRetries(env.stubRetryAttempts, env.stubRetryDelayMs, () =>
+            postDeceasedReversal(
+              env.stubIdentityUrl,
+              row.eventId,
+              row.nin,
+              'compensate: core accept failed'
+            )
+          )
+          await this.rows.update({ id: row.id }, { stubDone: false })
+        } catch (compensateErr: unknown) {
+          this.log.warn(
+            `compensate reverse failed eventId=${row.eventId} err=${
+              compensateErr instanceof Error ? compensateErr.message : 'unknown'
+            }`
+          )
+        }
+        throw err
+      }
+    }
+
     return this.transition(row, 'APPROVED', user.sub, 'approve')
   }
 

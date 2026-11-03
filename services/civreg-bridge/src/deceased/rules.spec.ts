@@ -7,7 +7,8 @@ import { assertCanApprove, assertCanReject, assertCanReverse } from './rules'
 
 const pending = {
   status: 'PENDING_APPROVAL' as const,
-  makerId: 'maker-1'
+  makerId: 'maker-1',
+  makerStaffId: null as string | null
 }
 
 describe('maker-checker rules', () => {
@@ -52,6 +53,19 @@ describe('maker-checker rules', () => {
   it('refuses reject by the maker', () => {
     expect(() =>
       assertCanReject(pending, { sub: 'maker-1', role: 'nimc_civreg_checker' })
+    ).toThrow(ForbiddenException)
+  })
+
+  it('refuses approval when staff ids match even if sub differs', () => {
+    expect(() =>
+      assertCanApprove(
+        { ...pending, makerStaffId: 'staff-ada' },
+        {
+          sub: 'keycloak-sub-other',
+          role: 'nimc_civreg_checker',
+          staffId: 'staff-ada'
+        }
+      )
     ).toThrow(ForbiddenException)
   })
 })

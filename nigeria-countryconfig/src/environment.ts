@@ -54,5 +54,9 @@ export const env = cleanEnv(process.env, {
   CIVREG_BRIDGE_CLIENT_SECRET: str({
     default: '',
     desc: 'DEMO system-client secret. Not a production credential.'
+  }),
+  CIVREG_BRIDGE_INTERCEPT_SECRET: str({
+    default: '',
+    desc: 'Shared secret sent as x-civreg-intercept-secret. Must match civreg-bridge INTERCEPT_SHARED_SECRET.'
   })
 })

@@ -12,6 +12,14 @@ function bridgeBaseUrl(): string {
   )
 }
 
+function interceptSecret(): string {
+  return (
+    process.env.CIVREG_BRIDGE_INTERCEPT_SECRET ||
+    env.CIVREG_BRIDGE_INTERCEPT_SECRET ||
+    ''
+  )
+}
+
 /**
  * Birth and death REGISTER: forward to civreg-bridge and answer 202.
  * Core retries until it gets 2xx. Do not use the trigger token for accept/reject.
@@ -35,9 +43,17 @@ export async function onInterceptedRegisterHandler(
   }
 
   try {
+    const secret = interceptSecret()
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json'
+    }
+    if (secret) {
+      headers['x-civreg-intercept-secret'] = secret
+    }
+
     const res = await fetch(`${bridgeUrl}/intercept/register`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify({
         eventId,
         actionId,

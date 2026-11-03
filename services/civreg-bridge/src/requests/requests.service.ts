@@ -1,9 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
-import { DataSource, QueryFailedError, Repository } from 'typeorm'
+import { DataSource, LessThan, QueryFailedError, Repository } from 'typeorm'
 import { AuditService } from '../audit/audit.service'
 import { RequestEntity } from '../database/entities/request.entity'
 import { CreateRequestDto, idempotencyKey } from './dto'
+import { sanitizeRequestPayload } from './sanitize-payload'
 
 export type PersistResult = {
   created: boolean
@@ -42,8 +43,12 @@ export class RequestsService {
           eventId: dto.eventId,
           actionId: dto.actionId,
           kind: dto.kind,
-          payload: dto.payload ?? {},
-          status: 'pending'
+          payload: sanitizeRequestPayload(dto.payload),
+          status: 'pending',
+          registrationNumber: null,
+          acceptTransactionId: null,
+          ninRequestId: null,
+          issuedNin: null
         })
         const saved = await manager.save(request)
         await this.audit.append(manager, {
@@ -83,5 +88,39 @@ export class RequestsService {
     status: RequestEntity['status']
   ): Promise<void> {
     await this.requests.update({ id }, { status })
+  }
+
+  async saveBirthArtifacts(
+    id: string,
+    input: {
+      ninRequestId: string
+      issuedNin: string
+      registrationNumber: string
+      acceptTransactionId: string
+    }
+  ): Promise<RequestEntity> {
+    await this.requests.update(
+      { id },
+      {
+        ninRequestId: input.ninRequestId,
+        issuedNin: input.issuedNin,
+        registrationNumber: input.registrationNumber,
+        acceptTransactionId: input.acceptTransactionId
+      }
+    )
+    return this.getById(id)
+  }
+
+  async listPendingBirthOlderThan(olderThanMs: number): Promise<RequestEntity[]> {
+    const cutoff = new Date(Date.now() - olderThanMs)
+    return this.requests.find({
+      where: {
+        status: 'pending',
+        kind: 'birth_nin',
+        createdAt: LessThan(cutoff)
+      },
+      order: { createdAt: 'ASC' },
+      take: 20
+    })
   }
 }

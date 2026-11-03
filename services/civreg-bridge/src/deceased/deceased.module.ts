@@ -19,6 +19,6 @@ import { DeceasedService } from './deceased.service'
   ],
   controllers: [DeceasedController],
   providers: [DeceasedService, AuditService, OutboxService, OutboxPublisher],
-  exports: [DeceasedService]
+  exports: [DeceasedService, OutboxService]
 })
 export class DeceasedModule {}

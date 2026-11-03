@@ -12,15 +12,15 @@ More detail: `docs/design-note.md`. What I actually ran and broke: `LEARNING_LOG
 flowchart LR
   Core[OpenCRVS Core] -->|POST /trigger/.../REGISTER| CC[nigeria-countryconfig]
   CC -->|202 pending| Core
-  CC -->|forward payload| Bridge[civreg-bridge]
+  CC -->|forward payload + shared secret| Bridge[civreg-bridge]
   Bridge -->|POST /nin-requests| Stub[stub-identity-api]
   Bridge -->|accept or reject with system client| Core
-  Bridge -->|civreg.registry.events.v1| Kafka[(Kafka topics .v1)]
+  Bridge -->|outbox to civreg.registry.events.v1| Kafka[(Kafka topics .v1)]
 ```
 
-Registrar hits Register. Core calls country config. Country config does not confirm. It forwards to civreg-bridge and answers **202**. The action stays Requested. Core unassigns the user.
+Registrar hits Register. Core calls country config. Country config does not confirm. It forwards to civreg-bridge with a shared secret and answers **202**. The action stays Requested. Core unassigns the user.
 
-Birth: bridge asks the stub for a NIN-at-birth (request only, DEMO NIN starts with `000`), publishes to `civreg.registry.events.v1`, then accepts with **its own system client**. Human tokens cannot accept or reject.
+Birth: bridge asks the stub for a NIN-at-birth (request only, DEMO NIN starts with `000`), accepts with **its own system client**, then publishes `civreg.birth.registered.v1` via the outbox. Human tokens cannot accept or reject.
 
 Death: same 202. Bridge opens `PENDING_APPROVAL`. A different checker JWT approves. Same person gets 403. Reverse needs a reason. It only undoes the identity-side flag. OpenCRVS cannot un-register.
 
@@ -31,13 +31,14 @@ Death: same 202. Bridge opens `PENDING_APPROVAL`. A different checker JWT approv
 - Roles with underscore ids (`nimc_civreg_*`). Password `test`. 2FA `000000`
 - civreg-bridge intercept, stub identity, hash-chained `audit_log`, outbox to `civreg.audit.v1`
 - Maker-checker death APIs (demo HS256 JWT, stands in for Keycloak)
+- Pending-request reconciler, intercept shared secret, outbox for birth registry events
 - Helm charts in namespace `civreg` (optional). Compose `:3042` is what countryconfig still calls
 - CI: lint, test, image build, Trivy. GHCR push only on `v*.*.*` tags
 
 ## What is not done or stubbed
 
 - MOSIP
-- Keycloak OIDC (demo JWT)
+- Keycloak OIDC (demo JWT; production would be RS256 + JWKS)
 - NPC seam / APISIX
 - Vault, ArgoCD
 - Strimzi mTLS (Kafka is one compose broker, plaintext)
@@ -45,6 +46,7 @@ Death: same 202. Bridge opens `PENDING_APPROVAL`. A different checker JWT approv
 - SIEM (audit is Postgres + Kafka, not Wazuh)
 - Upstream upgrade drill
 - Checker UI (approve/reverse is curl against the bridge)
+- Live observation of Core behaviour when countryconfig returns 503 (stop the bridge and register once; write down what you see)
 
 ## How to run (what I actually used)
 

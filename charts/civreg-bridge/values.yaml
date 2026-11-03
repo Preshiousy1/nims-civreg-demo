@@ -40,7 +40,8 @@ service:
   port: 3042
 
 # Name of a Secret that already exists in the namespace.
-# Expected keys: DATABASE_URL, JWT_SECRET, OPENCRVS_CLIENT_ID, OPENCRVS_CLIENT_SECRET
+# Expected keys: DATABASE_URL, JWT_SECRET, INTERCEPT_SHARED_SECRET,
+# OPENCRVS_CLIENT_ID, OPENCRVS_CLIENT_SECRET
 # Optional for postgres.devInstall: postgres-password
 existingSecret: civreg-bridge
 

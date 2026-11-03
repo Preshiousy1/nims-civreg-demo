@@ -1,8 +1,10 @@
-import { Body, Controller, HttpCode, Post } from '@nestjs/common'
+import { Body, Controller, HttpCode, Post, UseGuards } from '@nestjs/common'
+import { InterceptSecretGuard } from '../auth/intercept-secret.guard'
 import { CreateRequestDto } from '../requests/dto'
 import { InterceptService } from './intercept.service'
 
 @Controller('intercept')
+@UseGuards(InterceptSecretGuard)
 export class InterceptController {
   constructor(private readonly intercept: InterceptService) {}
 
